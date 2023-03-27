@@ -11,12 +11,12 @@
 
   @font-face {
     font-family: ubuntu;
-    src: url("/google fonts/Karla/Karla-VariableFont_wght.ttf");
+    src: url("Davemafy/Restaurant-Management-/css/fonts/Karla-VariableFont_wght.ttf");
   }
 
   @font-face {
     font-family: montserrat;
-    src: url("/google fonts/montserrat /static/Montserrat-light.ttf");
+    src: url("Davemafy/Restaurant-Management-/css/fonts/Montserrat-Light.ttf");
   }
 
   html {
@@ -86,7 +86,7 @@
     top: 1.5rem;
     right: 1.5rem;
 
-    background: url("/Restaurant app/icons/menu_FILL0_wght400_GRAD0_opsz48.svg");
+    background: url("Davemafy/Restaurant-Management-/icons/menu_FILL0_wght400_GRAD0_opsz48.svg");
     background-size: cover;
     background-position: center;
 
@@ -99,7 +99,7 @@
   }
 
   #mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url("/Restaurant app/icons/close_FILL0_wght400_GRAD0_opsz48.svg");
+    background-image: url("Davemafy/Restaurant-Management-/icons/close_FILL0_wght400_GRAD0_opsz48.svg");
   }
   
   .overlay[data-visible="true"]{
@@ -154,7 +154,7 @@
     top: .5rem;
     right: .4rem;
 
-    background: url("/Restaurant app/icons/highlight_off_black_24dp.svg");
+    background: url("Davemafy/Restaurant-Management-/icons/highlight_off_black_24dp.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
