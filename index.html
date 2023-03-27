@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Admin panel</title>
+  <link rel="stylesheet" href="css/ceo.css">
+</head>
+
+<body>
+
+  <header>
+    <nav id="nav">
+      <div id="title">
+        <h1><span id="welcome">Welcome. </span><span id="user">Management</span></h1>
+      </div>
+      <!--      <div id="menu">
+        <div id="menu-icon">
+          <img src="icons/menu_FILL0_wght400_GRAD0_opsz48.svg" height="50vh" alt="a">
+        </div>
+      </div>-->
+    </nav>
+    <button id="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+    </button>
+    
+    <div id="primary-navigation" data-visible="false" data-transed="false">
+      <div id="input-container">
+        <h1>Register A Customer</h1>
+        <input id="input-box" type="text">
+        <button class="input-button" id="input-btn">Submit</button>
+      </div>
+
+      <ul>
+        <li class="flexed" id="calculator-toggle">
+          <a aria-controls="primary-calculator" aria-expanded="false">
+            Calculate
+          </a>
+          <img src="icons/paid_black_24dp.svg" alt="">
+        </li>
+
+        <li class="flexed" id="Check Customers">
+          <a>
+            Customer
+          </a>
+          <img src="icons/savings_black_24dp.svg" alt="savings">
+        </li>
+
+        <li class="flexed" id="Relax">
+          <a>
+            Relax
+          </a>
+          <img src="icons/receipt_black_24dp.svg" alt="reciept">
+        </li>
+
+        <li class="flexed" id="Subroutine">
+          <a>
+            Subroutine
+          </a>
+          <img src="icons/autorenew_black_24dp.svg" alt="Autorenew">
+        </li>
+
+        <li class="flexed" id="Payments">
+          <a>Payments</a>
+          <img src="icons/account_balance_wallet_black_24dp.svg" alt="">
+        </li>
+
+        <li class="flexed" id="Payments">
+          <a>Analysis</a>
+          <img src="icons/timeline_black_24dp.svg" alt="">
+        </li>
+
+      </ul>
+    </div>
+    <div id="primary-calculator" data-visible="false" data-closed="true">
+     <button id="primary-calculator-toggle"></button>
+      <section id="primary-calculator-history">
+        <input data-current-operand  type="text" id="calc-display">
+        <p data-previous-operand id="result-box"></p>
+      </section>
+      <section id="primary-calculator-actions">
+       <button data-all-clear id="clear-all" class="operator">AC</button>
+        <button data-operation id="divide" class="operator">÷</button>
+        <button data-operation id="multiply" class="operator">×</button>
+        <button data-delete id="cancel" class="operator"><img src="icons/backspace-svgrepo-com.svg" alt=""></button>
+        <button data-number id="num7" class="number">7</button>
+        <button data-number id="num8" class="number">8</button>
+        <button data-number id="num9" class="number">9</button>
+        <button data-operation id="subtract" class="operator">-</button>
+        <button data-number id="num4" class="number">4</button>
+        <button data-number id="num5" class="number">5</button>
+        <button data-number id="num6" class="number">6</button>
+        <button data-operation id="add" class="operator">+</button>
+        <button data-number id="num1" class="number">1</button>
+        <button data-number id="num2" class="number">2</button>
+        <button data-number id="num3" class="number">3</button>
+        <button data-equals id="equals" class="operator white">=</button>
+        <button data-operation id="modulus" class="operator white">%</button>
+        <button data-number id="num0" class="number">0</button>
+        <button data-number id="period" class="operator white">.</button>
+      </section>
+    </div>
+  </header>
+
+  <div id="nav-kits">
+     <a href="#active">
+        <img src="icons/swipe_down_black_24dp.svg" alt="">
+     </a>
+     <a href="#primary-calculator">
+       <img src="icons/info_black_24dp.svg" alt="">
+     </a>
+     <a href="#">
+       <img src="icons/home_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+     </a>
+      <a href="">
+        <img src="icons/account_balance_wallet_black_24dp.svg" alt="">
+      </a>
+      <a href="">
+        <img src="icons/calculator.svg" alt="">
+      </a>
+    </div>
+    
+    <div id="primary-form">
+      <label for="customer-name">Customer</label>
+      <input type="text" value="" placeholder="who's..." name="" id="name" list="customers-list">
+     
+      <label for="customer-list">Order</label>
+      <input type="text" value="" placeholder="what..." name="" id="menu" list="menu-list">
+     
+      <label for="customer-name">Price</label>
+      <input type="text" value="" placeholder="how much..." name="" id="price" list="price-list">
+    
+      <button id="form-btn">Credit</button>
+      
+      <datalist id="customers-list">
+        <option value="Kebbi"></option>
+        <option value="Kuruma"></option>
+        <option value="Musa"></option>
+        <option value="First man by left"></option>
+        <option value="Semo customer"></option>
+      </datalist>
+      <datalist id="menu-list">
+        <option value="Rice & Beans"></option>
+        <option value="Semo & Egusi"></option>
+        <option value="Apu & Ogbono"></option>
+        <option value="Eba & Ogbono"></option>
+        <option value="Only Rice"></option>
+        <option value="Apu & Egusi"></option>
+        <option value="Semo & Ogbono"></option>
+        <option value="Apu & Mix Soup"></option>
+        <option value="Semo & Mix Soup"></option>
+      </datalist>
+      <datalist id="price-list">
+        <option value="N400"></option>
+        <option value="N300"></option>
+        <option value="N600"></option>
+        <option value="N700"></option>
+        <option value="N500"></option>
+      </datalist>
+    </div>
+    
+
+    <!--
+  <section id="dashboard">
+
+    <div class="dash-container">
+      <p class=" dash-title">
+        <a href="#" class="dash-title">
+          <img src="images/bar-chart.png" alt="">
+        </a>
+      </p>
+    </div>
+  
+    <div class="dash-container">
+      <p class="dash-title ">
+        <a href="#" class="dash-title ">
+          Today's Analysis
+          <img src="icons 1/people.png" alt="">
+        </a>
+      </p>
+    </div>
+    <div class="dash-container">
+      <p class="dash-title ">
+        <a href="#">
+          Payments Made
+          <img src=" icons/settings.svg" alt="">
+        </a>
+      </p>
+    </div>
+    <div class="dash-container">
+      <p class="dash-title ">
+        <a href="#">
+          Debts Owed
+          <img class=" bottom" src="images/id3.png" alt="">
+        </a>
+      </p>
+    </div>
+    <div class="dash-container">
+      <p class="dash-title ">
+        <a href="#">
+          Your Profits
+          <img class="" src="icons/paid_black_24dp.svg" alt="">
+        </a>
+      </p>
+    </div>
+    <div class="dash-container">
+      <p class="dash-title " id="active">
+        <a href="#">
+          Active Customers
+          <img class="bottom pad" src="icons 1/group.png" alt="">
+        </a>
+      </p>
+            <p>
+        Top ten customers who order frequently
+        and order most of the menu items
+      </p>
+    </div>
+    <div class="dash-container">
+      <p class="dash-title ">
+        <a href="#">
+          Sort Menu
+          <img src="icons/add_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+        </a>
+      </p>
+
+    </div>
+  </section>
+    -->
+  
+  <script src="js/appData.js" defer></script>
+  <script src="js/calcapp.js" defer></script>
+  <script src="js/toggle.js" defer></script>
+</body>
+
+</html>
