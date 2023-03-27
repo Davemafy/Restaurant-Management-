@@ -19,7 +19,7 @@
   }
 
   body {
-    font-family: montserrat;
+    font-family: 'Montserrat', sans-serif;
     background: whitesmoke;
     height: 90vh;
 
@@ -428,7 +428,8 @@
 
     color: #457;
     text-align: center;
-    font-family: ubuntu;
+    font-family: 'Karla', sans-serif;
+    
     font-size: 1.2rem;
   }
 
