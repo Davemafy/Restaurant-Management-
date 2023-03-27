@@ -11,12 +11,12 @@
 
   @font-face {
     font-family: ubuntu;
-    src: url("Davemafy/Restaurant-Management-/css/fonts/Karla-VariableFont_wght.ttf");
+    src: url("css/fonts/Karla-VariableFont_wght.ttf");
   }
 
   @font-face {
     font-family: montserrat;
-    src: url("Davemafy/Restaurant-Management-/css/fonts/Montserrat-Light.ttf");
+    src: url("css/fonts/Montserrat-Light");
   }
 
   html {
