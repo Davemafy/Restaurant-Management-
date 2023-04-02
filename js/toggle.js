@@ -81,3 +81,90 @@ inputBtn.addEventListener("click", () => {
   console.log(todayNames);
   localStorage.setItem("todayClients", JSON.stringify(clientNames))
 })
+
+const recordsToggle = document.getElementById('records-toggle')
+const homeToggle = document.querySelector('#home-toggle')
+const analysisToggle = document.querySelector('#analysis-toggle')
+const activitiesToggle = document.querySelector('#activities-toggle')
+
+
+const navKit = document.getElementById('nav-kits')
+const primaryRecords = document.querySelector('#primary-records')
+const primaryHome = document.querySelector('#primary-home')
+const primaryAnalysis = document.querySelector('#primary-analysis')
+const primaryActivities = document.querySelector('#primary-activities')
+
+recordsToggle.addEventListener('click', () => {
+  const visibility = primaryRecords.getAttribute('data-visible')
+  primaryHome.setAttribute('data-visible', false)
+  primaryAnalysis.setAttribute('data-visible', false)
+  primaryActivities.setAttribute('data-visible', false)
+
+  if (visibility === 'false') {
+    primaryRecords.setAttribute('data-visible', true)
+  }
+  else if (visibility === 'true') {
+    primaryRecords.setAttribute('data-visible', false)
+  }
+  navKit.style.background = ''
+})
+homeToggle.addEventListener('click', () => {
+  const visibility = primaryHome.getAttribute('data-visible')
+  primaryRecords.setAttribute('data-visible', false)
+  primaryAnalysis.setAttribute('data-visible', false)
+  primaryActivities.setAttribute('data-visible', false)
+
+  if (visibility === 'false') {
+    primaryHome.setAttribute('data-visible', true)
+  }
+  else if (visibility === 'true') {
+    primaryHome.setAttribute('data-visible', false)
+  }
+  navKit.style.background = '#00CFC1'
+
+})
+analysisToggle.addEventListener('click', () => {
+  const visibility = primaryAnalysis.getAttribute('data-visible')
+  primaryRecords.setAttribute('data-visible', false)
+  primaryHome.setAttribute('data-visible', false)
+  primaryActivities.setAttribute('data-visible', false)
+
+  if (visibility === 'false') {
+    primaryAnalysis.setAttribute('data-visible', true)
+  }
+  else if (visibility === 'true') {
+    primaryAnalysis.setAttribute('data-visible', false)
+  }
+  navKit.style.background = '#00FFAD'
+})
+activitiesToggle.addEventListener('click', () => {
+  const visibility = primaryActivities.getAttribute('data-visible')
+  primaryRecords.setAttribute('data-visible', false)
+  primaryAnalysis.setAttribute('data-visible', false)
+  primaryHome.setAttribute('data-visible', false)
+
+  if (visibility === 'false') {
+    primaryActivities.setAttribute('data-visible', true)
+  }
+  else if (visibility === 'true') {
+    primaryActivities.setAttribute('data-visible', false)
+  }
+  navKit.style.background = '#00FAFF'
+})
+
+const recordsDisplayToggle = document.querySelector('svg[aria-controls="records-all"]')
+const allRecords = document.querySelector('#records-all')
+
+recordsDisplayToggle.addEventListener('click', () => {
+  visibility = allRecords.getAttribute('data-visible')
+  if (visibility === 'true') {
+    allRecords.setAttribute('data-visible', false)
+    allRecords.classList.add('none')
+    console.log(visibility);
+  }
+  else if (visibility === 'false') {
+    allRecords.setAttribute('data-visible', true)
+    allRecords.classList.remove('none')
+    console.log(visibility);
+  }
+})
