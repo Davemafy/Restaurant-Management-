@@ -35,9 +35,7 @@
     ordersId = storedOrders
     setPrices(storedOrders)
     render()
-  } else{
-    localStorage.setItem("Orders", JSON.stringify(ordersId))
-  }
+  } 
 
   function setPrices(arr, num) {
     for (let i = 0; i < arr.length; i++) {
@@ -80,9 +78,9 @@
   function save(item) {
     if (inputName.value && inputOrder.value && inputPrice.value) {
       ordersId.push(item)
-      localStorage.setItem("storedOrders", JSON.stringify(ordersId))
+      localStorage.setItem("Orders", JSON.stringify(ordersId))
 
-      storedOrders = JSON.parse(localStorage.getItem("storedOrders"))
+      storedOrders = JSON.parse(localStorage.getItem("Orders"))
       // DETECTS A NEW CUSTOMER
       if (!customers.includes(ordersId[ordersId.length - 1].customer)) {
         alert("Hurray! We've got a new customer")
