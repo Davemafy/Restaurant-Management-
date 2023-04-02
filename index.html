@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Admin panel</title>
-  <link rel="stylesheet" href="css/ceo.css">
+    <link rel="stylesheet" href="css/ceo.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300&family=Montserrat:wght@300&display=swap" rel="stylesheet">
@@ -21,13 +21,13 @@
       </div>
       <!--      <div id="menu">
         <div id="menu-icon">
-          <img src="icons/menu_FILL0_wght400_GRAD0_opsz48.svg" height="50vh" alt="a">
+          <img src="/Restaurant app/icons/menu_FILL0_wght400_GRAD0_opsz48.svg" height="50vh" alt="a">
         </div>
       </div>-->
     </nav>
     <button id="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
     </button>
-    
+
     <div id="primary-navigation" data-visible="false" data-transed="false">
       <div id="input-container">
         <h1>Register A Customer</h1>
@@ -40,7 +40,7 @@
           <a aria-controls="primary-calculator" aria-expanded="false">
             Calculate
           </a>
-          <img src="icons/paid_black_24dp.svg" alt="">
+          <img src="/Restaurant app/icons/paid_black_24dp.svg" alt="">
         </li>
 
         <li class="flexed" id="Check Customers">
@@ -66,7 +66,7 @@
 
         <li class="flexed" id="Payments">
           <a>Payments</a>
-          <img src="icons/account_balance_wallet_black_24dp.svg" alt="">
+          <img src="/Restaurant app/icons/account_balance_wallet_black_24dp.svg" alt="">
         </li>
 
         <li class="flexed" id="Payments">
@@ -77,13 +77,13 @@
       </ul>
     </div>
     <div id="primary-calculator" data-visible="false" data-closed="true">
-     <button id="primary-calculator-toggle"></button>
+      <button id="primary-calculator-toggle"></button>
       <section id="primary-calculator-history">
-        <input data-current-operand  type="text" id="calc-display">
+        <input data-current-operand type="text" id="calc-display">
         <p data-previous-operand id="result-box"></p>
       </section>
       <section id="primary-calculator-actions">
-       <button data-all-clear id="clear-all" class="operator">AC</button>
+        <button data-all-clear id="clear-all" class="operator">AC</button>
         <button data-operation id="divide" class="operator">÷</button>
         <button data-operation id="multiply" class="operator">×</button>
         <button data-delete id="cancel" class="operator"><img src="icons/backspace-svgrepo-com.svg" alt=""></button>
@@ -107,64 +107,112 @@
   </header>
 
   <div id="nav-kits">
-     <a href="#active">
-        <img src="icons/swipe_down_black_24dp.svg" alt="">
-     </a>
-     <a href="#primary-calculator">
-       <img src="icons/info_black_24dp.svg" alt="">
-     </a>
-     <a href="#">
-       <img src="icons/home_FILL0_wght400_GRAD0_opsz48.svg" alt="">
-     </a>
-      <a href="">
-        <img src="icons/account_balance_wallet_black_24dp.svg" alt="">
-      </a>
-      <a href="">
-        <img src="icons/calculator.svg" alt="">
-      </a>
-    </div>
-    
-    <div id="primary-form">
-      <label for="customer-name">Customer</label>
-      <input type="text" value="" placeholder="who's..." name="" id="name" list="customers-list">
-     
-      <label for="customer-list">Order</label>
-      <input type="text" value="" placeholder="what..." name="" id="menu" list="menu-list">
-     
-      <label for="customer-name">Price</label>
-      <input type="text" value="" placeholder="how much..." name="" id="price" list="price-list">
-    
-      <button id="form-btn">Credit</button>
-      
-      <datalist id="customers-list">
-        <option value="Kebbi"></option>
-        <option value="Kuruma"></option>
-        <option value="Musa"></option>
-        <option value="First man by left"></option>
-        <option value="Semo customer"></option>
-      </datalist>
-      <datalist id="menu-list">
-        <option value="Rice & Beans"></option>
-        <option value="Semo & Egusi"></option>
-        <option value="Apu & Ogbono"></option>
-        <option value="Eba & Ogbono"></option>
-        <option value="Only Rice"></option>
-        <option value="Apu & Egusi"></option>
-        <option value="Semo & Ogbono"></option>
-        <option value="Apu & Mix Soup"></option>
-        <option value="Semo & Mix Soup"></option>
-      </datalist>
-      <datalist id="price-list">
-        <option value="N400"></option>
-        <option value="N300"></option>
-        <option value="N600"></option>
-        <option value="N700"></option>
-        <option value="N500"></option>
-      </datalist>
-    </div>
-    
 
-    <!--
+    <img id="records-toggle" src="/Restaurant app/icons/receipt_black_24dp.svg" alt="">
+    <img id="analysis-toggle" src="/Restaurant app/icons/info_black_24dp.svg" alt="">
+    <img id="home-toggle" src="/Restaurant app/icons/home_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+    <img id="activities-toggle" src="/Restaurant app/icons/account_balance_wallet_black_24dp.svg" alt="">
+    <img id="calculator-toggle" src="/Restaurant app/icons/calculator.svg" alt="">
+  </div>
+
+  <div id="primary-form">
+    <label for="customer-name">Customer</label>
+    <input type="text" class="primary-form-input" value="" placeholder="...." name="" id="name">
+
+    <label for="customer-list">Order</label>
+    <input type="text" class="primary-form-input" value="" placeholder="...." name="" id="menu" list="menu-list">
+
+    <label for="customer-name">Price</label>
+    <input type="text" inputmode="numeric" class="primary-form-input" value="" placeholder="...." name="" id="price" list="price-list">
+
+    <button id="form-btn">Credit</button>
+
+    <datalist id="customers-list">
+    </datalist>
+    <datalist id="menu-list">
+      <option value="Egusi Soup & Semo "></option>
+      <option value="Akpu & Ogbono Soup"></option>
+      <option value="Ogbono & Eba Soup"></option>
+      <option value="Rice Only"></option>
+      <option value="Akpu & Ogbono Soup"></option>
+      <option value="Semo & Ogbono Soup"></option>
+      <option value="Akpu & Ogbono with Egusi Soup"></option>
+      <option value="Rice & Beans"></option>
+      <option value="Semo & Ogbono with Egusi Soup"></option>
+      <option value="Vegetable Soup & Semo"></option>
+      <option value="Bitter Leaf Soup & Akpu"></option>
+      <option value="White Soup & Eba"></option>
+      <option value="Jollof Rice"></option>
+      <option value="Fried Rice"></option>
+      <option value="Vegetable Soup & Akpu"></option>
+      <option value="Bitter leaf Soup & Semo"></option>
+      <option value="White Soup & Semo"></option>
+      <option value="White Soup & Akpu"></option>
+    </datalist>
+    <datalist id="price-list">
+      <option value="200"></option>
+      <option value="300"></option>
+      <option value="400"></option>
+      <option value="500"></option>
+      <option value="600"></option>
+      <option value="700"></option>
+      <option value="800"></option>
+      <option value="900"></option>
+      <option value="1000"></option>
+      <option value="1100"></option>
+      <option value="1200"></option>
+    </datalist>
+  </div>
+  <section id="primary-records" data-visible="false">
+    <div id="title">
+      <h1 id="head-title">History</h1>
+      <span>
+        <button id="visibility-btn">
+          <svg aria-controls="records-all" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#221">
+            <path d="M0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none" />
+            <path d="M12 6c3.79 0 7.17 2.13 8.82 5.5-.59 1.22-1.42 2.27-2.41 3.12l1.41 1.41c1.39-1.23 2.49-2.77 3.18-4.53C21.27 7.11 17 4 12 4c-1.27 0-2.49.2-3.64.57l1.65 1.65C10.66 6.09 11.32 6 12 6zm-1.07 1.14L13 9.21c.57.25 1.03.71 1.28 1.28l2.07 2.07c.08-.34.14-.7.14-1.07C16.5 9.01 14.48 7 12 7c-.37 0-.72.05-1.07.14zM2.01 3.87l2.68 2.68C3.06 7.83 1.77 9.53 1 11.5 2.73 15.89 7 19 12 19c1.52 0 2.98-.29 4.32-.82l3.42 3.42 1.41-1.41L3.42 2.45 2.01 3.87zm7.5 7.5l2.61 2.61c-.04.01-.08.02-.12.02-1.38 0-2.5-1.12-2.5-2.5 0-.05.01-.08.01-.13zm-3.4-3.4l1.75 1.75c-.23.55-.36 1.15-.36 1.78 0 2.48 2.02 4.5 4.5 4.5.63 0 1.23-.13 1.77-.36l.98.98c-.88.24-1.8.38-2.75.38-3.79 0-7.17-2.13-8.82-5.5.7-1.43 1.72-2.61 2.93-3.53z" />
+          </svg>
+        </button>
+        <button id="delete-btn">
+          <img src="/Restaurant app/icons/delete_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+        </button>
+      </span>
+    </div>
+    <div id="records-all" data-visible="true">
+      <ul id="record-cards">
+        <div class="sub-title" data-visible="false">Now </div>
+        <div id="display">
+        </div>
+      </ul>
+      <ul id="earlier-cards"></ul>
+    </div>
+  </section>
+  <div id="pop-up">
+    <div id="dialog-box">
+      <h1>Do you want take this action</h1>
+      <div id="item">
+      </div>
+      <button id="yes-btn">✓</button>
+      <button id="no-btn">x</button>
+    </div>
+  </div>
+
+  <section id="primary-analysis" data-visible="false">
+    <div id="title">
+      <h1>Analysis</h1><span><img src="/Restaurant app/icons/logout_black_24dp.svg" alt=""></span>
+    </div>
+    <div>
+      <p class="sub-title">Total Plates sold</p>
+    </div>
+  </section>
+  <section id="primary-home" data-visible="false">
+    <div id="tite">Home</div>
+  </section>
+  <section id="primary-activities" data-visible="false">
+    <div id="tite">Activities</div>
+  </section>
+
+  <!--
   <section id="dashboard">
 
     <div class="dash-container">
@@ -229,11 +277,11 @@
 
     </div>
   </section>
-    -->
-  
-  <script src="js/appData.js"></script>
-  <script src="js/calcapp.js"></script>
-  <script src="js/toggle.js"></script>
+   -->
+
+  <script src="js/appData.js" defer></script>
+  <script src="js/calcapp.js" defer></script>
+  <script src="js/toggle.js" defer></script>
 </body>
 
 </html>
