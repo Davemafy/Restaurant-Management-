@@ -25,7 +25,7 @@
   let customers = JSON.parse(localStorage.getItem("allCustomers"))
 
   let ordersId = new Array()
-  let storedOrders = JSON.parse(localStorage.getItem("storedOrders"))
+  let storedOrders = JSON.parse(localStorage.getItem("Orders"))
   let prices = []
   let cardSelected = []
   const time = new Date()
@@ -35,6 +35,8 @@
     ordersId = storedOrders
     setPrices(storedOrders)
     render()
+  } else{
+    localStorage.setItem("Orders", JSON.stringify(ordersId))
   }
 
   function setPrices(arr, num) {
