@@ -599,7 +599,7 @@
   .circle {
     width: 15%;
     aspect-ratio: 1;
-    background: url("/Restaurant app/icons/account_circle_black_24dp.svg");
+    background: url("icons/account_circle_black_24dp.svg");
     background-size: contain;
     background-position: 0;
 
