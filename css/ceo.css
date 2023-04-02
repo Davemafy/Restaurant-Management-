@@ -83,7 +83,7 @@
     top: 1.5rem;
     right: 1.5rem;
 
-    background: url("icons/menu_FILL0_wght400_GRAD0_opsz48.svg");
+    background: url("menu_FILL0_wght400_GRAD0_opsz48.svg");
     background-size: cover;
     background-position: center;
 
@@ -96,7 +96,7 @@
   }
 
   #mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url("//icons/close_FILL0_wght400_GRAD0_opsz48.svg");
+    background-image: url("close_FILL0_wght400_GRAD0_opsz48.svg");
   }
   .material-symbols-rounded {
     font-variation-settings:
@@ -163,7 +163,7 @@
     top: .5rem;
     right: .4rem;
 
-    background: url("/Restaurant app/icons/highlight_off_black_24dp.svg");
+    background: url("highlight_off_black_24dp.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -599,7 +599,7 @@
   .circle {
     width: 15%;
     aspect-ratio: 1;
-    background: url("icons/account_circle_black_24dp.svg");
+    background: url("account_circle_black_24dp.svg");
     background-size: contain;
     background-position: 0;
 
