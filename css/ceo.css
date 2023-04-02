@@ -5,50 +5,53 @@
   }
 
   :root {
-    --primary: hsla(0, 0%, 96%, .8);
+    --primary: #4671;
     --sec: red;
   }
-
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@1,300&family=Montserrat:ital,wght@1,300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@1,300&family=Montserrat:ital,wght@1,300&display=swap');
-
-
 
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: montserrat;
     background: whitesmoke;
-    height: 90vh;
-
+    height: 100vh;
   }
 
   header {
-    position: fixed;
+    position: sticky;
     top: 0;
     min-height: 6rem;
     width: 100%;
   }
 
+  svg {
+    cursor: pointer;
+  }
+
   header nav {
     background: hsl(16, 70%, 50%, 0.9);
     background: var(--primary);
-    backdrop-filter: blur(0.5rem);
+    backdrop-filter: blur(0rem);
 
     display: flex;
     align-items: center;
     justify-content: flex-start;
 
+    background: hsla(176, 0%, 41%, .1);
 
     height: 4.9rem;
     z-index: 3;
   }
 
+  input[type="unknown"]:hover {
+    border: 1px solid red;
+    outline: 1px solid red;
+  }
+
   header h1,
-  .overlay h1
-  {
+  .overlay h1 {
     padding: 1rem;
     font-weight: bold;
     color: gray;
@@ -81,7 +84,7 @@
     top: 1.5rem;
     right: 1.5rem;
 
-    background: url("Davemafy/Restaurant-Management-/icons/menu_FILL0_wght400_GRAD0_opsz48.svg");
+    background: url("/Restaurant app/icons/menu_FILL0_wght400_GRAD0_opsz48.svg");
     background-size: cover;
     background-position: center;
 
@@ -94,21 +97,25 @@
   }
 
   #mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url("Davemafy/Restaurant-Management-/icons/close_FILL0_wght400_GRAD0_opsz48.svg");
+    background-image: url("icons/close_FILL0_wght400_GRAD0_opsz48.svg");
   }
-  
-  .overlay[data-visible="true"]{
+
+  .overlay[data-visible="true"] {
     width: 100vw;
     height: 100vh;
-    
+
     background: hsla(0, 0%, 0%, .8);
-    
+
     position: absolute;
   }
 
 
   #primary-navigation,
-  #primary-calculator {
+  #primary-calculator,
+  #primary-records,
+  #primary-analysis,
+  #primary-activities,
+  #primary-home {
     z-index: 3;
 
     position: fixed;
@@ -149,7 +156,7 @@
     top: .5rem;
     right: .4rem;
 
-    background: url("Davemafy/Restaurant-Management-/icons/highlight_off_black_24dp.svg");
+    background: url("/Restaurant app/icons/highlight_off_black_24dp.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -360,26 +367,28 @@
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
     position: fixed;
     bottom: 0%;
 
-    padding: 1.5rem;
-    
-    background: #F7A072;
-    background: #00CFC1;
-    background: #467;
+    padding-inline: 1.5em;
+
+    backgroun: #F7A072;
+    backgroun: #00CFC1;
+    backgrond: #467;
+    backdrop-filter: blur(0rem);
 
     width: 100%;
-    z-index: 1;
+    height: 12%;
   }
 
-  #nav-kits a {
+  #nav-kits img {
     text-decoration: none;
+    transition: .1s ease-in-out;
   }
 
-  #nav-kits a img {
+  #nav-kits img {
     height: 4.6vh;
 
     padding: .5rem;
@@ -390,25 +399,30 @@
     border-radius: 10px;
     box-shadow: 1px 1px 2px #467;
   }
-  
-  #nav-kits a:nth-child(3) img{
+
+  #nav-kits img:nth-child(3) {
+    height: 5.9vh !important;
+  }
+
+  #nav-kits img:hover {
+    box-shadow: 1px 1px 1rem #00FFB2;
     height: 5.5vh;
   }
 
   #primary-form {
     z-index: 1;
 
-    
-    padding: 25% 18%;
+
+    padding: 5% 18%;
 
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
 
   }
-  
-  #primary-form label{
-    
+
+  #primary-form label {
+
     color: #467;
     font-size: 1rem;
     font-weight: bold;
@@ -428,8 +442,7 @@
 
     color: #457;
     text-align: center;
-    font-family: 'Karla', sans-serif;
-    
+    font-family: ubuntu;
     font-size: 1.2rem;
   }
 
@@ -447,7 +460,235 @@
 
     background: #467;
     color: #fff;
+
+    font: inherit;
+
+  }
+
+  .none {
+    display: none;
+  }
+
+  #primary-records,
+  #primary-home,
+  #primary-analysis,
+  #primary-activities {
+    padding: 0;
+    height: 88%;
+    transform: translateX(-130%);
+  }
+
+  #primary-home,
+  #primary-analysis,
+  #primary-activities {
+    transform: translateY(130%);
+    background: hsla(180, 100%, 50%, 0.66);
+    background: hsla(176, 100%, 41%, 0.34901960784313724);
+    transition: 0s;
+    box-shadow: 10px 10px 5rem cyan;
+  }
+
+  #primary-analysis {
+    background: hsla(161, 100%, 50%, 0.34901960784313724);
+  }
+
+  #primary-activities {
+    background: hsla(181, 100%, 50%, 0.34901960784313724);
+  }
+
+  #primary-records #title,
+  #primary-home #title,
+  #primary-analysis #title,
+  #primary-activities #title {
+    position: sticky;
+    top: 0;
+
+    height: 12%;
+    width: 100%;
+
+    padding-inline: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: hsl(162 100% 42%);
+    backdrop-filter: blur(1rem);
+    color: #fff;
+
+    font-size: 1.2rem;
+    font-weight: bolder;
+  }
+
+  #primary-records #title h1,
+  #primary-analysis h1 {
+    font-size: 1.2rem;
+  }
+
+  #delete-btn,
+  #visibility-btn {
+    border: 0;
+    background: none;
+  }
+
+  #primary-analysis #title {
+    background: hsla(161, 70%, 50%, 0.94901960784313724);
+  }
+
+  #primary-records #title span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 20%;
+  }
+
+  #primary-records #title img {
+    height: 3.5vh;
+  }
+
+  #primary-records[data-visible="true"],
+  #primary-home[data-visible="true"],
+  #primary-analysis[data-visible="true"],
+  #primary-activities[data-visible="true"] {
+    transform: translateX(0%);
+  }
+
+  #primary-home,
+  #primary-analysis,
+  #primary-activities {
+    transform: translateX(200%);
+  }
+
+  .sub-title {
+    text-align: left;
+    padding-top: 1rem;
+    padding-left: .9rem;
+    font-size: 1.1rem;
+  }
+
+  .sub-title[data-visible="false"] {
+    display: none;
+  }
+
+  #record-cards #display {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+
+  #selected {
+    display: none;
+  }
+
+  .cstm-card {
+    /*background: hsla(12, 100%, 29%, .1);
+   */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 0.5rem;
+    margin-block-end: 0 1rem;
+  }
+
+  .circle {
+    width: 15%;
+    aspect-ratio: 1;
+    background: url("/Restaurant app/icons/account_circle_black_24dp.svg");
+    background-size: contain;
+    background-position: 0;
+
+    border-radius: 50px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  .card-main {
+    ackground: #529200A3;
+    width: 100%;
+    text-align: left;
+
+    padding-inline-start: 1rem;
+  }
+
+  .cstm-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .2rem;
+  }
+
+  .cstm-title h1 {
+    font-size: 0.9rem;
+  }
+
+  .card-main p {
+    display: flex;
+    justify-content: space-between;
+    font-size: .8rem;
+  }
+
+  #pop-up {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    inset: 0%;
+    background: #0009;
+    display: none;
+    place-items: center;
+    z-index: 9999;
+  }
+
+  #pop-up #dialog-box {
+    width: 80%;
+    min-height: 70%;;
+    
+    position: relative;
+
+    background: white;
+    
+    padding-block: min(6%,10%,13%);
+    padding-inline: 10%;
+    border-radius: 5px;
+  }
+  
+  #dialog-box > h1{
+    font-size: 1.9rem;
+    font-weight: lighter;
+    color: #467;
+  }
+  
+  #dialog-box button{
+    position: absolute;
+    bottom: 10%;
+    
+    padding: 4%;
+    padding-inline: 10%;
+    border-radius: 5px;
     
     font: inherit;
-    
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  #item{
+    height: 30vh;
+    overflow: scroll;
+  }
+  #item .cstm-card{
+    margin-block: 1rem;
+    padding-inline: 0;
+    border-bottom: 1px solid gray;
+    background: transparent!important;
+  }
+  #yes-btn{
+    background: #467;
+    color: white;
+    border: 1px solid #467;
+    margin-left: 0;
+  }
+  #no-btn{
+    left: 30%;
+    margin-inline: 25%;
+    color: #466;
+    background: transparent;
+    border: 1px solid #467;
   }
