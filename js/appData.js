@@ -25,7 +25,7 @@
   let customers = JSON.parse(localStorage.getItem("allCustomers"))
 
   let ordersId = new Array()
-  let storedOrders = JSON.parse(localStorage.getItem("Orders"))
+  let storedOrders = JSON.parse(localStorage.getItem("orders"))
   let prices = []
   let cardSelected = []
   const time = new Date()
@@ -78,9 +78,9 @@
   function save(item) {
     if (inputName.value && inputOrder.value && inputPrice.value) {
       ordersId.push(item)
-      localStorage.setItem("Orders", JSON.stringify(ordersId))
+      localStorage.setItem("orders", JSON.stringify(ordersId))
 
-      storedOrders = JSON.parse(localStorage.getItem("Orders"))
+      storedOrders = JSON.parse(localStorage.getItem("orders"))
       // DETECTS A NEW CUSTOMER
       if (!customers.includes(ordersId[ordersId.length - 1].customer)) {
         alert("Hurray! We've got a new customer")
