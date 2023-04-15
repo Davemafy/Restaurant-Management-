@@ -20,7 +20,7 @@
     width: 100vw;
     background-image:
       linear-gradient(150deg, hsla(0, 0%, 0%, .5), hsla(0, 0%, 0%, .4)),
-      url("/Restaurant app/images/herosection.jpg");
+      url("herosection.jpg");
     background-size: cover;
     position: absolute;
     inset: 0;
@@ -442,7 +442,7 @@
     overflow-x: hidden;
     width: 100%;
     height: 4rem;
-    box-shaow: 2px 0px outset #111;
+    
 
 
     backdrop-filter: blur(--nav-blur);
@@ -450,7 +450,7 @@
     background: hsl(0, 0%, 100%, 0.1);
     background-image:
       linear-gradient(150deg, hsla(0, 0%, 0%, .9), hsla(0, 0%, 0%, .9)),
-      url("/Restaurant app/images/herosection.jpg");
+      url("/herosection.jpg");
     background-size: cover;
     zoom: 90%;
     background-position: 50% 60%;
