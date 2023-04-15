@@ -35,10 +35,10 @@
   @font-face {
     font-family: montserrat;
     src: url("Montserrat-light.ttf");
-  
+I'margin: ;  }
 
   @font-face {
-    font-family: Quicksand ;
+    font-family: connd;
     src: url("Quicksand-Light.ttf");
   }
 
@@ -154,7 +154,7 @@
     top: 0rem;
     right: 0rem;
 
-    background: url("menu_FILL0_wght400_GRAD0_opsz48.svg");
+    background: url("icons/menu_FILL0_wght400_GRAD0_opsz48.svg");
     background-size: cover;
     background-position: center;
     filter: invert(70%);
@@ -166,7 +166,7 @@
   }
 
   #mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url("close_FILL0_wght400_GRAD0_opsz48.svg");
+    background-image: url("icons/close_FILL0_wght400_GRAD0_opsz48.svg");
     transition: 0s !important;
   }
 
@@ -229,7 +229,7 @@
   }
 
   #primary-navigation {
-    height: 100vhh;
+    height: 100vh;
     width: 80vw;
 
     background: ghostwhite;
@@ -296,7 +296,7 @@
     top: .5rem;
     right: .4rem;
 
-    background: url("/Restaurant app/icons/highlight_off_black_24dp.svg");
+    background: url("icons/highlight_off_black_24dp.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -411,7 +411,7 @@
   #arrow {
     width: 23px;
     aspect-ratio: 1;
-    background: url("icons/arrow_circle_right_FILL0_wght400_GRAD0_opsz48.svg");
+    background: url("/Restaurant app/icons/arrow_circle_right_FILL0_wght400_GRAD0_opsz48.svg");
     border: 0;
     background-size: cover;
     background-repeat: no-repeat;
@@ -442,7 +442,7 @@
     overflow-x: hidden;
     width: 100%;
     height: 4rem;
-    
+    box-shaow: 2px 0px outset #111;
 
 
     backdrop-filter: blur(--nav-blur);
@@ -499,7 +499,7 @@
     font-weight: bolder;
     font-family: connd;
   }
-  #nav-kit.expanded{
+  #nav-kits.expanded{
     --img-align: flex-end;
     height: 98vh;
     width: 100vw;
@@ -907,7 +907,7 @@
   .circle {
     width: 15%;
     aspect-ratio: 1;
-    background: url("/Restaurant app/icons/account_circle_black_24dp.svg");
+      background: url("icons/account_circle_black_24dp.svg");
     background-size: contain;
     background-position: 0;
 
