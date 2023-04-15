@@ -154,7 +154,7 @@
     top: 0rem;
     right: 0rem;
 
-    background: url("Restaurant App/css/close_FILL0_wght400_GRAD0_opsz48.svg");
+    background: url("menu_FILL0_wght400_GRAD0_opsz48.svg");
     background-size: cover;
     background-position: center;
     filter: invert(70%);
@@ -166,7 +166,7 @@
   }
 
   #mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url("Restaurant App/css/close_FILL0_wght400_GRAD0_opsz48.svg");
+    background-image: url("close_FILL0_wght400_GRAD0_opsz48.svg");
     transition: 0s !important;
   }
 
@@ -411,7 +411,7 @@
   #arrow {
     width: 23px;
     aspect-ratio: 1;
-    background: url("/Restaurant app/icons/arrow_circle_right_FILL0_wght400_GRAD0_opsz48.svg");
+    background: url("icons/arrow_circle_right_FILL0_wght400_GRAD0_opsz48.svg");
     border: 0;
     background-size: cover;
     background-repeat: no-repeat;
