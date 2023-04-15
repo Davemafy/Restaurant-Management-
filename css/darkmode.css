@@ -29,17 +29,17 @@
 
   @font-face {
     font-family: ubuntu;
-    src: url("/google fonts/Poppins-Light.ttf");
+    src: url("Poppins-Light.ttf");
   }
 
   @font-face {
     font-family: montserrat;
-    src: url("/google fonts/Montserrat-light.ttf");
-  }
+    src: url("Montserrat-light.ttf");
+  
 
   @font-face {
-    font-family: connd;
-    src: url("/google fonts/Quicksand-Light.ttf");
+    font-family: Quicksand ;
+    src: url("Quicksand-Light.ttf");
   }
 
 
@@ -229,13 +229,13 @@
   }
 
   #primary-navigation {
-    height: 100vh;
+    height: 100vhh;
     width: 80vw;
 
     background: ghostwhite;
     background-image:
       linear-gradient(150deg, hsla(0, 0%, 0%, .779), hsla(0, 0%, 0%, .8)),
-      url("/Restaurant app/images/herosection.jpg");
+      url("herosection.jpg");
     background-size: cover;
     opacity: 0;
     transform: translateX(100%);
@@ -450,7 +450,7 @@
     background: hsl(0, 0%, 100%, 0.1);
     background-image:
       linear-gradient(150deg, hsla(0, 0%, 0%, .9), hsla(0, 0%, 0%, .9)),
-      url("/herosection.jpg");
+      url("herosection.jpg");
     background-size: cover;
     zoom: 90%;
     background-position: 50% 60%;
@@ -499,7 +499,7 @@
     font-weight: bolder;
     font-family: connd;
   }
-  #nav-kits.expanded{
+  #nav-kit.expanded{
     --img-align: flex-end;
     height: 98vh;
     width: 100vw;
