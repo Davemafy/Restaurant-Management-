@@ -19,9 +19,10 @@
     height: 100vmax;
     width: 100vw;
     background-image:
-      linear-gradient(150deg, hsla(0, 0%, 0%, .5), hsla(0, 0%, 0%, .4)),
+      linear-gradient(150deg, hsla(0, 10%, 8%, .2), hsla(0, 0%, 0%, .3)),
       url("herosection.jpg");
     background-size: cover;
+    background-blend-mode: overlay;
     position: absolute;
     inset: 0;
     z-index: -1;
@@ -35,7 +36,7 @@
   @font-face {
     font-family: montserrat;
     src: url("Montserrat-light.ttf");
-I'margin: ;  }
+  }
 
   @font-face {
     font-family: connd;
@@ -74,7 +75,7 @@ I'margin: ;  }
 
   body #primary-records {
     transition: 1s!important;
-    scale: 2;
+    scale: 1;
   }
 
   .top,
@@ -154,7 +155,7 @@ I'margin: ;  }
     top: 0rem;
     right: 0rem;
 
-    background: url("icons/menu_FILL0_wght400_GRAD0_opsz48.svg");
+    background: url("menu_FILL0_wght400_GRAD0_opsz48.svg");
     background-size: cover;
     background-position: center;
     filter: invert(70%);
@@ -166,7 +167,7 @@ I'margin: ;  }
   }
 
   #mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url("icons/close_FILL0_wght400_GRAD0_opsz48.svg");
+    background-image: url("close_FILL0_wght400_GRAD0_opsz48.svg");
     transition: 0s !important;
   }
 
@@ -234,8 +235,9 @@ I'margin: ;  }
 
     background: ghostwhite;
     background-image:
-      linear-gradient(150deg, hsla(0, 0%, 0%, .779), hsla(0, 0%, 0%, .8)),
+      linear-gradient(150deg, hsla(0, 0%, 0%, .39), hsla(0, 0%, 0%, .2)),
       url("herosection.jpg");
+      background-blend-mode: darken;
     background-size: cover;
     opacity: 0;
     transform: translateX(100%);
@@ -296,7 +298,7 @@ I'margin: ;  }
     top: .5rem;
     right: .4rem;
 
-    background: url("icons/highlight_off_black_24dp.svg");
+    background: url("highlight_off_black_24dp.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -411,7 +413,7 @@ I'margin: ;  }
   #arrow {
     width: 23px;
     aspect-ratio: 1;
-    background: url("/Restaurant app/icons/arrow_circle_right_FILL0_wght400_GRAD0_opsz48.svg");
+    background: url("arrow_circle_right_FILL0_wght400_GRAD0_opsz48.svg");
     border: 0;
     background-size: cover;
     background-repeat: no-repeat;
@@ -907,7 +909,7 @@ I'margin: ;  }
   .circle {
     width: 15%;
     aspect-ratio: 1;
-      background: url("icons/account_circle_black_24dp.svg");
+    background: url("account_circle_black_24dp.svg");
     background-size: contain;
     background-position: 0;
 
