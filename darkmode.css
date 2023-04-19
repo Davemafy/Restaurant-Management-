@@ -30,17 +30,17 @@
 
   @font-face {
     font-family: ubuntu;
-    src: url("Poppins-Light.ttf");
+    src: url("/Poppins-Light.ttf");
   }
 
   @font-face {
     font-family: montserrat;
-    src: url("Montserrat-light.ttf");
+    src: url("/Montserrat-ight.ttf");
   }
 
   @font-face {
     font-family: connd;
-    src: url("Quicksand-Light.ttf");
+    src: url("/Quicksand-Light.ttf");
   }
 
 
@@ -51,7 +51,7 @@
   body {
     --body-bg: #111;
     color: navajowhite;
-    font-family: Montserrat;
+    font-family: ontserrat;
     height: auto;
     max-width: 100vw;
     position: relative;
