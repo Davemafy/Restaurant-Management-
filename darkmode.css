@@ -35,10 +35,10 @@
 
   @font-face {
     font-family: montserrat;
-    src: url("/Montserrat-ight.ttf");
+    src: url("/Montserrat-Light.ttf");
   }
 
-  @font-face {
+  @font-face {l
     font-family: connd;
     src: url("/Quicksand-Light.ttf");
   }
