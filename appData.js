@@ -3,7 +3,9 @@
   const inputPrice = document.querySelector('#price')
   const formBtn = document.querySelector('#form-btn')
   const formInputs = document.querySelectorAll("#primary-form-input")
-
+  const warnText = document.querySelectorAll('.warn-text')
+  
+  const primaryRecords = document.querySelector('#primary-records')
   const primaryRecordsUlDisplay = document.querySelector('#display')
   const primaryRecordsEarlier = document.querySelector('#earlier-cards')
 
@@ -17,12 +19,13 @@
   const popUpItems = document.querySelector('#pop-up #item')
   const yesBtn = document.querySelector('#yes-btn')
   const noBtn = document.querySelector('#no-btn')
+  const navDot = document.querySelector('#nav-kits .dot')
   const dot = document.querySelector('#delete-btn .dot')
 
   let nameList = document.querySelector('#customers-list')
   let recordedCustomers = ["Tall Boy", "Philip Tailor Neighbor", "Kebbi", "POS Guy Front", "Alhaji", "Kebbi Junior Bro", "Crayfish Man(short)", "Musa", "Kuruma", "Bucher Neighbor(buy meat from)", "Bucher Nieghbour (black)", "Bucher Neighbor(fair)", "Chairman", "Chairman Son", "Chairman last son(takeaway)", "Grinding Woman", "Kuruma Accomplice", "Dye Woman", "Odogwu", "Odogwu Friend", "Tomato Man", "Sani Baiwa", "Takeaway Guy", "Kitchen Woman", "Perfume Baba", "Semo Customer", "Biscuit Woman", "Kitchen Woman Sister", "Bwari Brother", "Always transfer before eat", "Chinedu", "Papa", "Mama", "Tall Boy Girl", "Supremarket", "Extreme End", "Chinedu", "Igbo Meat Seller(left)", "Umar", "Near Takeaway man", "Chukwudi", "Plastic Woman", "Ugwu woman near chairman", "Mummy Twins", "Extreme End left", "Extreme End opposite", "opp takeaway man", "Customer Ate Here", "Daniel Friend", "Egusi Woman", "First Man by Left", "First Man by Right", "Next man after first bucher right", "Grinding Man", "Neighbor doesn't collect money", "Ugwu Woman Neigh", "Hagiya"]
   recordedCustomers.sort()
-  let customers = JSON.parse(localStorage.getItem("allCustomers"))
+  let customers
 
   let ordersId = new Array()
   let storedOrders = JSON.parse(localStorage.getItem("storedOrders"))
@@ -35,7 +38,11 @@
     ordersId = storedOrders
     setPrices(storedOrders)
     render()
+    document.querySelector('#default').classList.add('none')
+    primaryRecords.style.opacity = '1'
   }
+  
+  
 
   function setPrices(arr, num) {
     for (let i = 0; i < arr.length; i++) {
@@ -47,13 +54,12 @@
   }
 
   function suggest() {
+    localStorage.setItem("allCustomers", JSON.stringify(recordedCustomers))
+    customers = JSON.parse(localStorage.getItem("allCustomers"))
     if (customers) {
       // CREATE NEW OPTIONS
       appendOptions()
-    } else {
-      localStorage.setItem("allCustomers", JSON.stringify(recordedCustomers))
-    }
-
+    } 
     function appendOptions() {
       let option = ''
       let amount = customers.length
@@ -66,7 +72,7 @@
     }
 
     inputName.setAttribute('list', 'customers-list')
-  }
+  } 
 
   function reset() {
     inputName.value = ''
@@ -79,7 +85,8 @@
     if (inputName.value && inputOrder.value && inputPrice.value) {
       ordersId.push(item)
       localStorage.setItem("storedOrders", JSON.stringify(ordersId))
-
+      document.querySelector('#default').classList.add('none')
+      primaryRecords.style.opacity = '1'
       storedOrders = JSON.parse(localStorage.getItem("storedOrders"))
       // DETECTS A NEW CUSTOMER
       if (!customers.includes(ordersId[ordersId.length - 1].customer)) {
@@ -106,14 +113,20 @@
       }
 
       primaryRecordsUlDisplay.innerHTML += paragraph
+      formBtn.style.width = 'auto'
+      formBtn.innerHTML = 'Submited'
+      navDot.style.opacity ='1'
       cardsToggle()
-      //  console.log(`${ordersId[ordersId.length - 1].customer} , Bought ${ordersId[ordersId.length - 1].order}. At The Price Of ${ordersId[ordersId.length - 1].price}`)
+      reset()
     }
+      //  console.log(`${ordersId[ordersId.length - 1].customer} , Bought ${ordersId[ordersId.length - 1].order}. At The Price Of ${ordersId[ordersId.length - 1].price}`)
+//    else{
+//        formBtn.innerHTML = '🚫'
+//    }
   }
 
 
   function render() {
-    const primaryRecords = document.querySelector('#primary-records')
     paragraph = ''
     ordersId.reverse()
     for (var i = 0; i < ordersId.length; i++) {
@@ -134,6 +147,7 @@
     }
     primaryRecordsEarlier.innerHTML = `<h1 class="sub-title">Earlier</h1> ${paragraph}`
     cardsToggle()
+    
   }
 
   function cardsToggle() {
@@ -231,13 +245,32 @@
   document.addEventListener('DOMContentLoaded', () => {
     suggest()
   })
+  const inputs = document.querySelectorAll('input')
   formBtn.addEventListener('click', () => {
-    newItem = { customer: inputName.value, order: inputOrder.value, price: inputPrice.value }
-    //if (popUp()){
-    save(newItem)
+  if (inputName.value === '' || inputName.value.length <3) {
+    warnText[0].style.display = 'block'
+  }  if (inputOrder.value === '' || inputOrder.value.length <3) {
+    warnText[1].style.display = 'block'
+  }  if (inputPrice.value === '' || inputPrice.value.length <2) {
+    warnText[2].style.display = 'block'
+  }
+   newItem = { customer: inputName.value, order: inputOrder.value, price: inputPrice.value }
+   save(newItem)
+   inputs.forEach(input => {
+     if (input.value === 'clear'){
+       localStorage.clear()
+     }
+    })
+ 
     setPrices(storedOrders, storedOrders.length - 1)
     //}
-    reset()
     console.log('cliked');
+  })
+  let defaultBtn = formBtn.innerHTML
+  let defaultBtnWidth = formBtn.getBoundingClientRect().width
+  formBtn.addEventListener('mouseout', () => {
+     setTimeout(() => {warnText.forEach(text => {text.style.display = 'none'})}, 1000)
+     formBtn.innerHTML = defaultBtn
+     formBtn.style.width = `${defaultBtnWidth}px`
   })
   // deleteBtn.addEventListener('click', () => {}])

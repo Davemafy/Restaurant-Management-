@@ -92,20 +92,21 @@ calcToggleOff.addEventListener('click', () => {
 })
 
 let openRecords = document.getElementById('records-toggle')
-const teview = document.querySelector('#review-toggle')
+const analysisToggle = document.querySelector('#analysis-toggle')
 const addToggle = document.querySelector('#add-toggle')
 const notifyToggle = document.querySelector('#notify-toggle')
 const settingsToggle = document.querySelector('#settings-toggle')
 
 const navKit = document.getElementById('nav-kits')
 const navKitImg = document.querySelectorAll('#nav-kits img')
-const primaryRecords = document.querySelector('#primary-records')
+// primaryRecords = document.querySelector('#primary-records')
 const primaryHome = document.querySelector('#primary-home')
 const primaryAnalysis = document.querySelector('#primary-analysis')
 const primaryActivities = document.querySelector('#primary-activities')
 
 openRecords.addEventListener('click', () => {
   const inseted = body.getAttribute('aria-current')
+    body.classList.remove('insetY3')
     body.classList.add('insetY')
     navKit.classList.add('nav-dark')
   if (inseted === 'true') {
@@ -123,17 +124,24 @@ openRecords.addEventListener('click', () => {
     navKitImg.forEach(img => {
       img.style.opacity = '1'
     })
+    
+    
     //openRecords.setAttribute('src', '/Restaurant app/icons/account_balance_wallet_black_24dp.svg')
   }
+  navDot.style.opacity = '0'
 })
 
 addToggle.addEventListener('click', () => {
       body.classList.remove('insetY')
     navKit.classList.remove('nav-dark')
+    body.classList.remove('insetY3')
 })
 
-formBtn.addEventListener('click', () => {
-    formBtn.classList.toggle('clicked')
+//formBtn.addEventListener('click', () => {
+//    formBtn.classList.toggle('clicked')
+//})
+analysisToggle.addEventListener('click', () => {
+    body.classList.add('insetY3')
 })
 
 function modify(toggler){
@@ -142,7 +150,7 @@ function modify(toggler){
   this.element = toggler;
   // the parent 
   this.parent = toggler.parentElement
-  // the icon and its immediate icons
+// the icon and its immediate icons
   this.elementsArray = [...toggler.parentElement.children]
     // splicing/removing the icon from the array
     this.elementsArray.splice(this.elementsArray.indexOf(this.element), 1)
@@ -226,7 +234,6 @@ addToggle.addEventListener('click', () => {
 
 
 const visibilityTool = document.querySelector('svg[aria-controls="records-all"]')
-const allRecords = document.querySelector('#records-all')
 
 visibilityTool.addEventListener('click', () => {
   visibility = allRecords.getAttribute('data-visible')
@@ -269,6 +276,7 @@ primaryRecords.addEventListener('scrolldown', (e) => {
   }
   console.log(e.clientY);
 })
+/* This is an accessable setting
 let startingX, startingY, movingX, movingY
 primaryRecords.addEventListener('touchstart', (e) => {
   startingX = e.touches[0].clientX
@@ -297,7 +305,7 @@ primaryRecords.addEventListener('touchend', (e) => {
   }
 })
 
-
+*/
 const exitBtn = document.querySelector('#exit-btn')
 
 exitBtn.addEventListener('click', (e) => {
