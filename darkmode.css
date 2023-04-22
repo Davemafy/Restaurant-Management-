@@ -1207,6 +1207,7 @@ padding: 0;
     grid-template-areas:
       'one one'
       ' two two '
+      'five five '
       ' three four'
   }
   
