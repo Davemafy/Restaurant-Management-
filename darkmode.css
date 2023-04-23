@@ -1156,7 +1156,6 @@ svg {
   backdrop-filter: blur(1rem);
   padding: 1rem;
   position: relative;
-  height: 40%;
 }
 
 #primary-analysis article:nth-child(1) {
@@ -1167,6 +1166,7 @@ svg {
   background-image: cross-fade(url("/doorbell_black_24dp.svg.jpg"), url("cube.png"), 50%);
   background-size: cover;
   background-position:  center;
+  height: 45%;
 }
 #primary-analysis article:nth-child(2) h1{
   color: #111;
