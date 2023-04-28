@@ -4,8 +4,7 @@
   const formBtn = document.querySelector('#form-btn')
   const formInputs = document.querySelectorAll("#primary-form-input")
   const warnText = document.querySelectorAll('.warn-text')
-  
-  const primaryRecords = document.querySelector('#primary-records')
+
   const primaryRecordsUlDisplay = document.querySelector('#display')
   const primaryRecordsEarlier = document.querySelector('#earlier-cards')
 
@@ -22,6 +21,7 @@
   const navDot = document.querySelector('#nav-kits .dot')
   const dot = document.querySelector('#delete-btn .dot')
 
+
   let nameList = document.querySelector('#customers-list')
   let recordedCustomers = ["Tall Boy", "Philip Tailor Neighbor", "Kebbi", "POS Guy Front", "Alhaji", "Kebbi Junior Bro", "Crayfish Man(short)", "Musa", "Kuruma", "Bucher Neighbor(buy meat from)", "Bucher Nieghbour (black)", "Bucher Neighbor(fair)", "Chairman", "Chairman Son", "Chairman last son(takeaway)", "Grinding Woman", "Kuruma Accomplice", "Dye Woman", "Odogwu", "Odogwu Friend", "Tomato Man", "Sani Baiwa", "Takeaway Guy", "Kitchen Woman", "Perfume Baba", "Semo Customer", "Biscuit Woman", "Kitchen Woman Sister", "Bwari Brother", "Always transfer before eat", "Chinedu", "Papa", "Mama", "Tall Boy Girl", "Supremarket", "Extreme End", "Chinedu", "Igbo Meat Seller(left)", "Umar", "Near Takeaway man", "Chukwudi", "Plastic Woman", "Ugwu woman near chairman", "Mummy Twins", "Extreme End left", "Extreme End opposite", "opp takeaway man", "Customer Ate Here", "Daniel Friend", "Egusi Woman", "First Man by Left", "First Man by Right", "Next man after first bucher right", "Grinding Man", "Neighbor doesn't collect money", "Ugwu Woman Neigh", "Hagiya"]
   recordedCustomers.sort()
@@ -34,15 +34,29 @@
   const time = new Date()
   const timeStr = time.toLocaleTimeString()
 
+  // FirebaseDB realtime setup
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
+  import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+
+  const appSettings = {
+    databaseURL: "https://restaurant-4dd1c-default-rtdb.firebaseio.com/"
+  }
+
+  const app = initializeApp(appSettings)
+  const database = getDatabase(app)
+  const ordersDB = ref(database, "details")
+
+  
   if (storedOrders) {
     ordersId = storedOrders
     setPrices(storedOrders)
     render()
     document.querySelector('#default').classList.add('none')
+   const primaryRecords = document.querySelector('#primary-records')
     primaryRecords.style.opacity = '1'
   }
-  
-  
+
+
 
   function setPrices(arr, num) {
     for (let i = 0; i < arr.length; i++) {
@@ -59,7 +73,9 @@
     if (customers) {
       // CREATE NEW OPTIONS
       appendOptions()
-    } 
+    }
+  
+
     function appendOptions() {
       let option = ''
       let amount = customers.length
@@ -72,7 +88,8 @@
     }
 
     inputName.setAttribute('list', 'customers-list')
-  } 
+  }
+  suggest()
 
   function reset() {
     inputName.value = ''
@@ -83,7 +100,9 @@
 
   function save(item) {
     if (inputName.value && inputOrder.value && inputPrice.value) {
+    let paragraph = ''
       ordersId.push(item)
+      push(ordersDB, item)
       localStorage.setItem("storedOrders", JSON.stringify(ordersId))
       document.querySelector('#default').classList.add('none')
       primaryRecords.style.opacity = '1'
@@ -113,21 +132,23 @@
       }
 
       primaryRecordsUlDisplay.innerHTML += paragraph
-      formBtn.style.width = 'auto'
+      formBtn.style.transform = 'translateX(-20%)'
+      formBtn.style.background = 'blueviolet'
+
       formBtn.innerHTML = 'Submited'
-      navDot.style.opacity ='1'
+      navDot.style.opacity = '1'
       cardsToggle()
       reset()
     }
-      //  console.log(`${ordersId[ordersId.length - 1].customer} , Bought ${ordersId[ordersId.length - 1].order}. At The Price Of ${ordersId[ordersId.length - 1].price}`)
-//    else{
-//        formBtn.innerHTML = '🚫'
-//    }
+    //  console.log(`${ordersId[ordersId.length - 1].customer} , Bought ${ordersId[ordersId.length - 1].order}. At The Price Of ${ordersId[ordersId.length - 1].price}`)
+    //    else{
+    //        formBtn.innerHTML = '🚫'
+    //    }
   }
 
 
   function render() {
-    paragraph = ''
+    let paragraph = ''
     ordersId.reverse()
     for (var i = 0; i < ordersId.length; i++) {
       paragraph += `    <li class="cstm-card">
@@ -147,11 +168,11 @@
     }
     primaryRecordsEarlier.innerHTML = `<h1 class="sub-title">Earlier</h1> ${paragraph}`
     cardsToggle()
-    
+
   }
 
   function cardsToggle() {
-    primaryCards = document.querySelectorAll('.cstm-card')
+    let primaryCards = document.querySelectorAll('.cstm-card')
     primaryCards.forEach(card => {
       let display = ''
       card.addEventListener('click', () => {
@@ -218,8 +239,8 @@
 
               if (cardSelected.length === 0) {
                 updateDisplay(null, 'History')
-               dot.innerHTML = null
-             }
+                dot.innerHTML = null
+              }
               popUpItems.innerHTML = ''
               selected.style.background = 'none'
             })
@@ -242,26 +263,25 @@
 
 
   // EVENT LISTENERS
-  document.addEventListener('DOMContentLoaded', () => {
-    suggest()
-  })
   const inputs = document.querySelectorAll('input')
   formBtn.addEventListener('click', () => {
-  if (inputName.value === '' || inputName.value.length <3) {
-    warnText[0].style.display = 'block'
-  }  if (inputOrder.value === '' || inputOrder.value.length <3) {
-    warnText[1].style.display = 'block'
-  }  if (inputPrice.value === '' || inputPrice.value.length <2) {
-    warnText[2].style.display = 'block'
-  }
-   newItem = { customer: inputName.value, order: inputOrder.value, price: inputPrice.value }
-   save(newItem)
-   inputs.forEach(input => {
-     if (input.value === 'clear'){
-       localStorage.clear()
-     }
+    if (inputName.value === '' || inputName.value.length < 3) {
+      warnText[0].style.display = 'block'
+    }
+    if (inputOrder.value === '' || inputOrder.value.length < 3) {
+      warnText[1].style.display = 'block'
+    }
+    if (inputPrice.value === '' || inputPrice.value.length < 2) {
+      warnText[2].style.display = 'block'
+    }
+   let newItem = { customer: inputName.value, order: inputOrder.value, price: inputPrice.value }
+    save(newItem)
+    inputs.forEach(input => {
+      if (input.value === 'clear') {
+        localStorage.clear()
+      }
     })
- 
+
     setPrices(storedOrders, storedOrders.length - 1)
     //}
     console.log('cliked');
@@ -269,8 +289,11 @@
   let defaultBtn = formBtn.innerHTML
   let defaultBtnWidth = formBtn.getBoundingClientRect().width
   formBtn.addEventListener('mouseout', () => {
-     setTimeout(() => {warnText.forEach(text => {text.style.display = 'none'})}, 1000)
-     formBtn.innerHTML = defaultBtn
-     formBtn.style.width = `${defaultBtnWidth}px`
+    setTimeout(() => { warnText.forEach(text => { text.style.display = 'none' }) }, 1000)
+    formBtn.innerHTML = defaultBtn
+    formBtn.style.transform = 'translateX(0%)'
+    formBtn.style
+    formBtn.style.background = ''
+    formBtn.style.width = `${defaultBtnWidth}px`
   })
   // deleteBtn.addEventListener('click', () => {}])

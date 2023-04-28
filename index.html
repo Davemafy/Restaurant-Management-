@@ -11,7 +11,8 @@
   <meta name="msapplication-navbutton-color" content="#111">
   <!-- iOS Safari -->
   <meta name="apple-mobile-web-app-status-bar-style" content="#111">
-  <title>Admin panel</title>
+  <title>Restaurant App</title>
+  <link rel="icon" href="/favicon.png">
   <link rel="stylesheet" href="darkmode.css">
   <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 -->
@@ -110,10 +111,10 @@
   <div id="nav-kits" class="dark blue">
     <img id="notify-toggle" src="doorbell_black_24dp.svg" alt="">
     <img id="analysis-toggle" src="contactless_black_24dp.svg" alt="">
-      <img id="add-toggle" src="add_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+    <img id="add-toggle" src="add_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="">
     <span id="dotbox">
-     <span class="dot"></span>
-    <img id="records-toggle" src="assignment_ind_black_24dp.svg" alt="">
+      <span class="dot"></span>
+      <img id="records-toggle" src="assignment_ind_black_24dp.svg" alt="">
     </span>
     <img id="settings-toggle" src="settings.svg" alt="">
   </div>
@@ -228,17 +229,36 @@
   </section>
 
   <section id="primary-analysis">
-    <article class="grid-col-2"><h1>Total number of plates sold</h1> <p></p></article>
-    <article>
-      <h1>Highlights</h1>
-      <div>
-        <ig src="herosection.jpg" height="80rem" alt="">
-        <p></p>
-     </div>
+    <article class="analysis-container">
+      <h1>Total number of plates sold</h1>
+      <p></p>
     </article>
-    <article></article>
-    <article class="grid-col-2"></article>
-    <article></article>
+    <article class="analysis-container">
+      <div class="box">
+        <h1 id="rev-title">Amount from sales</h1>
+        <div>
+          <b> <u>#0</u> </b>
+        </div>
+      </div>
+    </article>
+    <article class="analysis-container">
+      <h1>Active Customers</h1>
+      <div>
+        <p>15k to you opay wallet</p>
+      </div>
+    </article>
+    <article class="analysis-container">
+      <h1>Records</h1>
+      <div>
+        <p>15k to you opay wallet</p>
+      </div>
+    </article>
+    <article class="analysis-container">
+      <h1>Operations</h1>
+      <div>
+        <p>15k to you opay wallet</p>
+      </div>
+    </article>
   </section>
 
 
@@ -252,9 +272,10 @@
     </div>
   </div>
 
-  <script src="appData.js" defer></script>
+  <script src="appData.js" type="module"></script>
   <script src="calcapp.js" defer></script>
   <script src="toggle.js" defer></script>
+  <script src="database.js" type="module"></script>
 </body>
 
 </html>

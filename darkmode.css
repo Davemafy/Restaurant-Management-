@@ -1118,6 +1118,7 @@ svg {
   border: 1px solid #467;
   padding-block-start: 1rem;
 }
+/*{background: #fe85;outline: 1px solid red;}*/
 
 #primary-analysis {
   box-shadow: none;
@@ -1133,29 +1134,32 @@ svg {
   background-blend-mode: lighten;
   background-position: 10% 70%;
   background: #fff;
+  background: repeating-linear-gradient(180deg,#fff,#fff,#fff, #fff,#fff,#fff, #FFDEAD);
   display: grid;
-  gap: 1.5rem;
-  grid-auto-columns: 1fr;
+  gap: 2.5rem;
+  grid-aut-columns: 1fr;
   grid-template-areas:
     'one'
     'two'
     'three'
     'four'
     'five';
-    
+  
 }
 
 #primary-analysis article {
   height: 100%;
   width: 100%;
-  background: #777;
   border-radius: 0.5rem;
   background: repeating-linear-gradient(45deg, #FAEBD74D, #FFDEAD8A);
   background: hsl(0, 0%, 0%, 0.75);
-  box-shadow: .1rem .1rem .41rem #999;
+  box-shadw: .1rem .1rem .41rem inset #999;
   backdrop-filter: blur(1rem);
-  padding: 1rem;
+  padding: 0rem;
+  background: #0000;
   position: relative;
+  box-shadow: .1rem .1rem .41rem inset #999;
+  padding: 2rem;
 }
 
 #primary-analysis article:nth-child(1) {
@@ -1165,18 +1169,42 @@ svg {
   background-image: -webkit-cross-fade(url("/contactless_black_24dp.svg"), url("cube.png"), 77%);
   background-image: cross-fade(url("/doorbell_black_24dp.svg.jpg"), url("cube.png"), 50%);
   background-size: cover;
+  padding: 2rem;
   background-position:  center;
-  height: 45%;
 }
-#primary-analysis article:nth-child(2) h1{
+#primary-analysis article:nth-child(2) .box h1{
   color: #111;
   backdrop-filter: bur(01rem);
   border-radius: inherit;
   padding: 1rem;
-  color: black;
+  font-size: 2rem;
+  box-shadow: none;
+  border: 0;
+  -webkit-text-stroke: 1px  #111;
+  color: #1110;
+  }
+#primary-analysis article:nth-child(2) .box{
+    width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  backdrop-filter: blur(var(--nav-blur)) grayscale();
+  box-shadow: .1rem .1rem .41rem inset #000;
+  background: #fff;
+  
+
+}
+#primary-analysis article:nth-child(2) .box div{
+    width: 100%;
+  height: 100%;
+--line-width: 25px;
+   background: repeating-linear-gradient(-45deg, gold, gold var(--line-width), transparent var(--line-width), transparent calc( var(--line-width) * 2) );
+  border-radius: inherit;
+  backdrop-filter: blur(var(--nav-blur)) grayscale();
+  box-shadow: .1rem .1rem .41rem inset #000;
 }
 #primary-analysis article:nth-child(2) {
   grid-area: two;
+  height: 100%;
   /*backgrond: linear-gradient(45deg, pink, skyblue);
   background: cross-fade(url("herosection.jpg") 100%, url("/cube.png") 0%);
   background-image: -webkit-cross-fade(url("scale.jpg"), url("cube.png"), 7%);
@@ -1184,51 +1212,59 @@ svg {
   -webkit-background-size: cover;
   background-size: cover;
 */  
-  background-image:
-    linear-gradient(150deg, #FFC0CB, #87CEEB),
+  backgroud-image:
+    linear-gradient(45deg, #fff1, #fff1),
     url("herosection.jpg");
   background-size: cover;
-  background-position: 50% 60%;
-  background-blend-mode: luminosity;
-padding: 0;
+  box-shadow: .1rem .1rem .41rem inset navajowhite;
+  background-position: 0% 60%;
+  background-blend-mode: difference;
+  background: transarent;
+  padding: 0;
+ /* box-shadow: .1rem .1rem .41rem inset cyan; */
 }
 #primary-analysis article:nth-child(3) {
   grid-area: three;
+ /* box-shadow: .1rem .1rem .41rem inset purple; */
 }
 #primary-analysis article:nth-child(4) {
   grid-area: four;
+ /* box-shadow: .1rem .1rem .41rem inset blueviolet; */
 }
 #primary-analysis article:nth-child(5) {
   grid-area: five;
+  background: #fff;
+/*  box-shadow: .1rem .1rem .41rem inset darkgreen; */
 }
 
 @media (max-width: 50em) {
   #primary-analysis {
     grid-template-areas:
       'one one'
-      ' two two '
-      'five five '
-      ' three four'
+      'one one'
+      'two two'
+      'three three'
+      'four four'
+      'five five'
   }
+}
   
 #primary-analysis article h1 {
   text-align: left;
-  font-family: ubuntu;
+  font-family: montserrat;
   color: #111;
+  border-bottom: 1px lightgray solid;
+  min-height: 50%;
+  border-radius: inherit;
+  padding: 1rem;
+  box-shadow: .1rem .1rem .41rem inset #999;
 }
 
-#primary-analysis article h1{
-}
-#primary-analysis article h1+p {
-  font-size: 3rem;
-  position: absolute;
-  bottom: -.3rem;
-  right: 8.4rem;
-  
+#primary-analysis article div p {
+    font-size: 1rem;
 }
 
 #primary-analysis article div {
-  height: 70%;
   display: flex;
   flex-flow: row nowrap;
   gap: 1rem;
@@ -1236,6 +1272,8 @@ padding: 0;
   align-items: center;
   font-size: 1rem;
   background: none;
+  padding: 3rem 1rem;
+  box-hadow: .1rem .1rem .41rem inset #999;
 }
 
 #primary-analysis article div img {
@@ -1256,7 +1294,6 @@ padding: 0;
     grid-row:  1 / span 4;
   }
   */
-}
 
 /*
   #primary-analysis ul {

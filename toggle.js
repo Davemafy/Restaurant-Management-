@@ -11,6 +11,8 @@ const primaryForm = document.querySelector(
 const primaryFormLabel = document.querySelectorAll(
   '#primary-form label')
 
+const primaryRecords = document.querySelector('#primary-records')
+
 navToggle.addEventListener('click', function() {
   const navVisible =
     primaryNav.getAttribute('data-visible')
@@ -128,6 +130,7 @@ openRecords.addEventListener('click', () => {
     
     //openRecords.setAttribute('src', '/Restaurant app/icons/account_balance_wallet_black_24dp.svg')
   }
+  const navDot = document.querySelector('#nav-kits .dot')
   navDot.style.opacity = '0'
 })
 
