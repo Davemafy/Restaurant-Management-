@@ -26,6 +26,7 @@
   let recordedCustomers = ["Tall Boy", "Philip Tailor Neighbor", "Kebbi", "POS Guy Front", "Alhaji", "Kebbi Junior Bro", "Crayfish Man(short)", "Musa", "Kuruma", "Bucher Neighbor(buy meat from)", "Bucher Nieghbour (black)", "Bucher Neighbor(fair)", "Chairman", "Chairman Son", "Chairman last son(takeaway)", "Grinding Woman", "Kuruma Accomplice", "Dye Woman", "Odogwu", "Odogwu Friend", "Tomato Man", "Sani Baiwa", "Takeaway Guy", "Kitchen Woman", "Perfume Baba", "Semo Customer", "Biscuit Woman", "Kitchen Woman Sister", "Bwari Brother", "Always transfer before eat", "Chinedu", "Papa", "Mama", "Tall Boy Girl", "Supremarket", "Extreme End", "Chinedu", "Igbo Meat Seller(left)", "Umar", "Near Takeaway man", "Chukwudi", "Plastic Woman", "Ugwu woman near chairman", "Mummy Twins", "Extreme End left", "Extreme End opposite", "opp takeaway man", "Customer Ate Here", "Daniel Friend", "Egusi Woman", "First Man by Left", "First Man by Right", "Next man after first bucher right", "Grinding Man", "Neighbor doesn't collect money", "Ugwu Woman Neigh", "Hagiya"]
   recordedCustomers.sort()
   let customers
+  localStorage.setItem("allCustomers", JSON.stringify(recordedCustomers))
 
   let ordersId = new Array()
   let storedOrders = JSON.parse(localStorage.getItem("storedOrders"))
@@ -33,30 +34,56 @@
   let cardSelected = []
   const time = new Date()
   const timeStr = time.toLocaleTimeString()
-
-  // FirebaseDB realtime setup
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-  import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
-
+/*  // FirebaseDB realtime setup
   const appSettings = {
     databaseURL: "https://restaurant-4dd1c-default-rtdb.firebaseio.com/"
   }
 
-  const app = initializeApp(appSettings)
-  const database = getDatabase(app)
-  const ordersDB = ref(database, "details")
+  window.addEventListener("online", (e) => {
+    console.log("online");
+    import("https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js").then(async (main) => {
+      app = await main.initializeApp(appSettings)
+    })
 
-  
+    import("https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js").then(async (db) => {
+      database = await db.getDatabase(app)
+      ordersDB = db.ref(database, "details")
+      db.onValue(ordersDB, function(snapshot) {
+        details = Object.values(snapshot.val())
+        storedOrders = details
+        render(details)
+      })
+    })
+  });
+
+*/
+
+
   if (storedOrders) {
+    // re-renders the prev records //
     ordersId = storedOrders
     setPrices(storedOrders)
-    render()
+    render(ordersId)
+    // change the state of primaryRecords to active //
     document.querySelector('#default').classList.add('none')
-   const primaryRecords = document.querySelector('#primary-records')
+    const primaryRecords = document.querySelector('#primary-records')
     primaryRecords.style.opacity = '1'
   }
 
-
+  function suggest() {
+    customers = JSON.parse(localStorage.getItem("allCustomers"))
+    if (customers) {
+      // CREATE NEW OPTIONS
+      let option = ''
+      let amount = customers.length
+      for (let i = 0; i < amount; i++) {
+        option += `<option value="${customers[i]}"></option>`
+      }
+      nameList.innerHTML += option
+    }
+    inputName.setAttribute('list', 'customers-list')
+  }
+  suggest()
 
   function setPrices(arr, num) {
     for (let i = 0; i < arr.length; i++) {
@@ -67,30 +94,6 @@
     }
   }
 
-  function suggest() {
-    localStorage.setItem("allCustomers", JSON.stringify(recordedCustomers))
-    customers = JSON.parse(localStorage.getItem("allCustomers"))
-    if (customers) {
-      // CREATE NEW OPTIONS
-      appendOptions()
-    }
-  
-
-    function appendOptions() {
-      let option = ''
-      let amount = customers.length
-
-
-      for (let i = 0; i < amount; i++) {
-        option += `<option value="${customers[i]}"></option>`
-      }
-      nameList.innerHTML += option
-    }
-
-    inputName.setAttribute('list', 'customers-list')
-  }
-  suggest()
-
   function reset() {
     inputName.value = ''
     inputOrder.value = ''
@@ -98,11 +101,14 @@
 
   }
 
-  function save(item) {
+  function save(item,storage) {
     if (inputName.value && inputOrder.value && inputPrice.value) {
-    let paragraph = ''
+      let paragraph = ''
       ordersId.push(item)
-      push(ordersDB, item)
+      //import("https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js").then(async (db) => {
+      //  db.push(ordersDB, item)
+      //})
+
       localStorage.setItem("storedOrders", JSON.stringify(ordersId))
       document.querySelector('#default').classList.add('none')
       primaryRecords.style.opacity = '1'
@@ -115,11 +121,11 @@
                           <div class="circle"></div>
                           <div class="card-main">
                             <div class="cstm-title">
-                              <h1>${ordersId[ordersId.length-1].customer}</h1>
+                              <h1>${storage[storage.length-1].customer}</h1>
                               <h6><small>28/3/23</small></h6>
                             </div>
                             <p>
-                              <span>${ordersId[ordersId.length-1].order}</span><span>N${ordersId[ordersId.length-1].price}</span>
+                              <span>${storage[storage.length-1].order}</span><span>N${storage[storage.length-1].price}</span>
                             </p>
                           </div>
                         </li>
@@ -147,20 +153,20 @@
   }
 
 
-  function render() {
+  function render(storage) {
     let paragraph = ''
     ordersId.reverse()
-    for (var i = 0; i < ordersId.length; i++) {
+    for (var i = 0; i < storage.length; i++) {
       paragraph += `    <li class="cstm-card">
                           <small></small>
                           <div class="circle"></div>
                           <div class="card-main">
                             <div class="cstm-title">
-                              <h1>${ordersId[i].customer}</h1>
+                              <h1>${storage[i].customer}</h1>
                               <h6><small>${timeStr}</small></h6>
                             </div>
                             <p>
-                              <span>${ordersId[i].order}</span><span>N${ordersId[i].price}</span>
+                              <span>${storage[i].order}</span><span>N${storage[i].price}</span>
                             </p>
                           </div>
                         </li>
@@ -274,25 +280,25 @@
     if (inputPrice.value === '' || inputPrice.value.length < 2) {
       warnText[2].style.display = 'block'
     }
-   let newItem = { customer: inputName.value, order: inputOrder.value, price: inputPrice.value }
-    save(newItem)
+    let newItem = { customer: inputName.value, order: inputOrder.value, price: inputPrice.value }
+    save(newItem, ordersId)
     inputs.forEach(input => {
       if (input.value === 'clear') {
         localStorage.clear()
       }
     })
 
-    setPrices(storedOrders, storedOrders.length - 1)
+    setPrices(storedOrders, ordersId)
     //}
     console.log('cliked');
   })
+
   let defaultBtn = formBtn.innerHTML
   let defaultBtnWidth = formBtn.getBoundingClientRect().width
   formBtn.addEventListener('mouseout', () => {
     setTimeout(() => { warnText.forEach(text => { text.style.display = 'none' }) }, 1000)
     formBtn.innerHTML = defaultBtn
     formBtn.style.transform = 'translateX(0%)'
-    formBtn.style
     formBtn.style.background = ''
     formBtn.style.width = `${defaultBtnWidth}px`
   })

@@ -11,9 +11,10 @@
   <meta name="msapplication-navbutton-color" content="#111">
   <!-- iOS Safari -->
   <meta name="apple-mobile-web-app-status-bar-style" content="#111">
-  <title>Restaurant App</title>
+  <title>Admin panel</title>
   <link rel="icon" href="/favicon.png">
   <link rel="stylesheet" href="darkmode.css">
+  <link rel="manifest" href="manifest.json">
   <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 -->
 </head>
@@ -271,8 +272,17 @@
       <button id="no-btn">x</button>
     </div>
   </div>
-
-  <script src="appData.js" type="module"></script>
+  
+  <script>
+    if('serviceWorker' in navigator){
+      window.addEventListener('load', ()=>{
+        navigator.serviceWorker.register('serviceworker.js')
+          .then((reg) => console.log('Success', reg.scope))
+          .catch((err) => console.log('Failure', err))
+      })
+    }
+  </script>
+  <script src="appData.js"></script>
   <script src="calcapp.js" defer></script>
   <script src="toggle.js" defer></script>
   <script src="database.js" type="module"></script>

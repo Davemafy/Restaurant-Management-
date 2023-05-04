@@ -35,7 +35,7 @@
 
 @font-face {
   font-family: montserrat;
-  src: url("Montserrat-Light.ttf");
+  src: url("/Montserrat-Light.ttf");
 }
 
 @font-face {
@@ -531,7 +531,7 @@ svg {
 #nav-kits img:hover,
 #nav-kits #add-toggle {
   border-radius: 50px;
-  transform: translateY(-1%);
+  transform: translateY(-3%);
   box-shadow: 1px 1px 1rem #333;
   background: repeating-linear-gradient(45deg, antiquewhite, navajowhite);
 }
@@ -561,7 +561,7 @@ svg {
   box-shadow: 1px 1px .3rem #FF8000;
   box-shadow: none;
   animation: circle 5000ms linear reverse infinite;
-  transform: rotate(95deg);
+  transform: rotate(180deg);
   background: transparent;
 }
 
