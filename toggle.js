@@ -50,6 +50,24 @@ navToggle.addEventListener('click', function() {
   }
 })
 
+overlay.addEventListener('click', () => {
+	  const navVisible =
+    primaryNav.getAttribute('data-visible')
+
+  if (navVisible === 'true') {
+    primaryNav.setAttribute(
+      'data-visible', false
+    )
+     overlay.setAttribute(
+      'data-visible', false
+    )
+    navToggle.setAttribute(
+      'aria-expanded', false
+    )
+   }
+  
+})
+
 
 // CALCULATOR TOGGLER 
 const calculatorToggle =
@@ -59,13 +77,13 @@ const primaryCalculator =
 const calcToggleOff =
   document.querySelector("#primary-calculator-toggle")
 
-function toggleVisibility(arr)
+function toggleVisibility(arg)
 {
-  if (arr === "false") {
+  if (arg === "false") {
     primaryCalculator.setAttribute(
       "data-visible", true
     )
-  } else if (arr === "true") {
+  } else if (arg === "true") {
     primaryCalculator.setAttribute(
       "data-visible", false
     )
@@ -105,135 +123,35 @@ const navKitImg = document.querySelectorAll('#nav-kits img')
 const primaryHome = document.querySelector('#primary-home')
 const primaryAnalysis = document.querySelector('#primary-analysis')
 const primaryActivities = document.querySelector('#primary-activities')
+const scroller = document.querySelector('#nav-kits #navigator')
 
-openRecords.addEventListener('click', () => {
-  const inseted = body.getAttribute('aria-current')
-    body.classList.remove('insetY3')
-    body.classList.add('insetY')
-    navKit.classList.add('nav-dark')
-  if (inseted === 'true') {
-    body.setAttribute('aria-current', false)
-    navKitImg.forEach(img => {
-     // img.style.transition = 'opacity 350ms ease-in-out'
-     // img.style.opacity = '0'
+const navBtns =document.querySelectorAll('#nav-kits button')
+navBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    if (btn === navBtns[0]){
+      body.style.inset = '0%'
+    }
+    else if (btn === navBtns[1]){
+      body.style.inset = '0 0 0 -100%'
+    }
+    else if (btn === navBtns[2] ){
+      body.style.inset = '0 0 0 -200%'
+      const navDot = document.querySelector('#nav-kits .dot')
+      navDot.style.opacity = '0'
+    }
+    else if (btn === navBtns[3]){
+      body.style.inset = '0 0 0 -300%'
+    }
+    else if (btn = navBtns[4]){
+      body.style.inset = '0 0 0 -400%'
+    }
+      let client = btn.getBoundingClientRect()
+      scroller.style.transform =
+        `translateX(${client.x}px)`
     })
-    //openRecords.setAttribute('src', '/Restaurant app/icons/assistant_navigation_FILL0_wght400_GRAD0_opsz48.svg')
-   // openRecords.style.opacity = '1'
-    openRecords.style.scale = '1'
-  }
-  else if(inseted === 'false'){
-    body.setAttribute('aria-current', true)
-    navKitImg.forEach(img => {
-      img.style.opacity = '1'
-    })
-    
-    
-    //openRecords.setAttribute('src', '/Restaurant app/icons/account_balance_wallet_black_24dp.svg')
-  }
-  const navDot = document.querySelector('#nav-kits .dot')
-  navDot.style.opacity = '0'
 })
 
-addToggle.addEventListener('click', () => {
-      body.classList.remove('insetY')
-    navKit.classList.remove('nav-dark')
-    body.classList.remove('insetY3')
-})
 
-//formBtn.addEventListener('click', () => {
-//    formBtn.classList.toggle('clicked')
-//})
-analysisToggle.addEventListener('click', () => {
-    body.classList.add('insetY3')
-})
-
-function modify(toggler){
- // Elements 
-  // the icon that clicked 
-  this.element = toggler;
-  // the parent 
-  this.parent = toggler.parentElement
-// the icon and its immediate icons
-  this.elementsArray = [...toggler.parentElement.children]
-    // splicing/removing the icon from the array
-    this.elementsArray.splice(this.elementsArray.indexOf(this.element), 1)
-
-  this.parent.classList.toggle('expanded')
- 
-  this.element.classList.add('hovered')
-  if (!this.parent.classList.contains('expanded')) {
-   this.element.classList.remove('hovered')
-  }
-
-  this.elementsArray.forEach(icon =>{
-    icon.addEventListener('click', () => {
-      if (this.parent.classList.contains('expanded')) {
-        this.parent.classList.add('expanded')
-      this.element.classList.remove('hovered')
-      } else{
-        this.parent.classList.remove('expanded')
-      this.element.classList.remove('hovered')
-      }
-    })
-  })
-}
-
-/*
-new modify(reviewToggle)
-new modify(settingsToggle)
-reviewToggle.addEventListener('click', (e) => {new modify(e.target)})
-addToggle.addEventListener('click', (e) => {new modify(e.target)})
-notifyToggle.addEventListener('click', (e) => {new modify(e.target)})
-settingsToggle.addEventListener('click', (e) => {new modify(e.target)})
-
-
-
-reviewToggle.addEventListener('click', () => {
-  const visibility = primaryHome.getAttribute('data-visible')
-  primaryRecords.setAttribute('data-visible', false)
-  primaryAnalysis.setAttribute('data-visible', false)
-  primaryActivities.setAttribute('data-visible', false)
-
-  if (visibility === 'false') {
-    primaryHome.setAttribute('data-visible', true)
-    navKit.style.background = '#00CFC1'
-  }
-  else if (visibility === 'true') {
-    primaryHome.setAttribute('data-visible', false)
-    navKit.style.background = 'var(--nav-bg)'
-  }
-
-})
-addToggle.addEventListener('click', () => {
-addToggle.addEventListener('click', () => {
-  const visibility = primaryAnalysis.getAttribute('data-visible')
-  primaryRecords.setAttribute('data-visible', false)
-  primaryHome.setAttribute('data-visible', false)
-  primaryActivities.setAttribute('data-visible', false)
-
-  if (visibility === 'false') {
-    primaryAnalysis.setAttribute('data-visible', true)
-  }
-  else if (visibility === 'true') {
-    primaryAnalysis.setAttribute('data-visible', false)
-  }
-  navKit.style.background = '#00FFAD'
-  navKit.style.background = 'initial'
-})
-  const visibility = primaryActivities.getAttribute('data-visible')
-  primaryRecords.setAttribute('data-visible', false)
-  primaryAnalysis.setAttribute('data-visible', false)
-  primaryHome.setAttribute('data-visible', false)
-
-  if (visibility === 'false') {
-    primaryActivities.setAttribute('data-visible', true)
-  }
-  else if (visibility === 'true') {
-    primaryActivities.setAttribute('data-visible', false)
-  }
-  navKit.style.background = '#00FAFF'
-})
-*/
 
 
 const visibilityTool = document.querySelector('svg[aria-controls="records-all"]')

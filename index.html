@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,47 +6,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Chrome, Firefox OS and Opera -->
-  <meta name="theme-color" content="#111">
+  <meta name="theme-color" content="#fff">
   <!-- Windows Phone -->
-  <meta name="msapplication-navbutton-color" content="#111">
+  <meta name="msapplication-navbutton-color" content="#fff">
   <!-- iOS Safari -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#111">
-  <title>RestApp </title>
+  <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
+  <title>Restaurant App</title>
   <link rel="icon" href="/favicon.png">
   <link rel="stylesheet" href="darkmode.css">
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest1.json">
   <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 -->
 </head>
 
 <body aria-current="true">
   <header>
-    <nav id="nav">
-      <div id="title">
-        <p>
-          <span id="home">
-            <span>O1</span> HOME
-          </span>
-          <span id="user">
-            <span>IXI</span> VIEW
-          </span>
-          <span id="user">
-            <span>IV</span> ADMIN
-          </span>
-        </p>
-      </div>
-    </nav>
-
-    <div class="overlay" data-visible="false"></div>
-    <div id="primary-navigation" data-visible="false" data-transed="false">
+    <h1>RestApp</h1>
+    <button id="user-circle">
+        <img src="/4324573.png" alt="">
+        <p id="user-name"></p>
+      </button>
+    <button id="install">Install Me</button>
+    <button id="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"></button>
+    <div class="overlay " data-visible="false"></div>
+    <div id="primary-navigation" class="section" data-visible="false" data-transed="false">
+      <section id="user-details">
+        <div><span class=""></span></div>
+        <span>
+          <p><big>User</big></p>
+          <p><small>View Profile</small></p>
+        </span>
+      </section>
       <ul>
         <li class="" id="calculator-toggle">
           <a aria-controls="primary-calculator" aria-expanded="false">
             Calculate
           </a>
         </li>
+        <li class="" id="Payments">
+          <a>Analysis</a>
+        </li>
 
-        <li class="" id="Check Customers">
+       <li class="" id="Check Customers">
           <a>
             Customer
           </a>
@@ -57,24 +58,19 @@
             Relax
           </a>
         </li>
-
-        <li class="" id="Subroutine">
-          <a>
-            Subroutine
-          </a>
-        </li>
-
-        <li class="" id="Payments">
-          <a>Payments</a>
-        </li>
-
-        <li class="" id="Payments">
-          <a>Analysis</a>
-        </li>
-
       </ul>
+      <section id="footer">
+        <div>
+          <div></div>
+          <p>Try Premium For Free</p>
+        </div>
+        <div>
+          <img src="settings.svg" alt="">
+          <p>Settings</p>
+        </div>
+      </section>
     </div>
-    <div id="primary-calculator" data-visible="false" data-closed="true">
+    <div id="primary-calculator" class="section" data-visible="false" data-closed="true">
       <button id="primary-calculator-toggle"></button>
       <section id="primary-calculator-history">
         <input data-current-operand type="text" id="calc-display">
@@ -84,7 +80,7 @@
         <button data-all-clear id="clear-all" class="operator">AC</button>
         <button data-operation id="divide" class="operator">÷</button>
         <button data-operation id="multiply" class="operator">×</button>
-        <button data-delete id="cancel" class="operator"><img src="icons/backspace-svgrepo-com.svg" alt=""></button>
+        <button data-delete id="cancel" class="operator"><img src="/backspace-svgrepo-com.svg" alt=""></button>
         <button data-number id="num7" class="number">7</button>
         <button data-number id="num8" class="number">8</button>
         <button data-number id="num9" class="number">9</button>
@@ -103,41 +99,65 @@
       </section>
     </div>
   </header>
-  <button id="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
-  </button>
+  <div id="top-bar">
 
-  <!-- <div class="top"></div> -->
-  <button id="arrow"></button>
-
-  <div id="nav-kits" class="dark blue">
-    <img id="notify-toggle" src="doorbell_black_24dp.svg" alt="">
-    <img id="analysis-toggle" src="contactless_black_24dp.svg" alt="">
-    <img id="add-toggle" src="add_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="">
-    <span id="dotbox">
-      <span class="dot"></span>
-      <img id="records-toggle" src="assignment_ind_black_24dp.svg" alt="">
-    </span>
-    <img id="settings-toggle" src="settings.svg" alt="">
   </div>
-  <section id="primary-form">
+
+  <nav id="nav-kits">
+    <span id="navigator"></span>
+    <button id="analysis-toggle">
+      <img src="/home_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+    </button>
+    <button id="records-toggle">
+      <span id="dotbox">
+        <span class="dot"></span>
+        <img src="/account_circle_black_24dp.svg" alt="">
+      </span>
+    </button>
+    <button id="add-toggle">
+      <img src="add_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+    </button>
+    <button id="notify-toggle">
+      <img src="/wysiwyg_black_24dp.svg" alt="">
+    </button>
+    <button id="settings-toggle">
+      <img src="settings.svg" alt="">
+    </button>
+  </nav>
+
+  <section id="primary-form" class="section">
+    <h2>Form</h2>
     <div id="name-box">
-      <label for="customer"></label>
-      <input type="text" placeholder="Customer name" class="primary-form-input" id="name">
-      <p class="warn-text"><small><img src="/fi-rr-info.svg" width="6%" alt=""> this field is required </small></p>
+      <label for="customer">Customer</label>
+      <input type="text" placeholder="&#3439 Customer name" class="primary-form-input" id="name">
+      <div class="warn-text">
+        <img src="/info_black_24dp.svg" alt="info">
+        <p>this field is required </p>
+      </div>
     </div>
     <div id="order-box">
-      <label for="order">Menu</label>
-      <input type="text" placeholder="food request" class="primary-form-input" id="menu" list="menu-list">
-      <p class="warn-text"><small><img src="/fi-rr-info.svg" width="6%" alt=""> this field is required </small></p>
+      <label for="order">*Menu</label>
+      <input type="text" placeholder="&#9865 food request" class="primary-form-input" id="menu" list="menu-list">
+      <div class="warn-text">
+        <img src="/info_black_24dp.svg" alt="info">
+        <p>this field is required </p>
+      </div>
     </div>
     <div id="price-box">
-      <label for="price">Price</label>
-      <input type="text" placeholder="price" inputmode="numeric" class="primary-form-input" id="price" list="price-list">
-      <p class="warn-text"><small><img src="/fi-rr-info.svg" width="6%" alt=""> this field is required </small></p>
+      <label for="price">*Price</label>
+      <input type="text" placeholder="&#957 price" inputmode="numeric" class="primary-form-input" id="price" list="price-list">
+      <div class="warn-text">
+        <img src="/info_black_24dp.svg" alt="info">
+        <p>this field is required </p>
+      </div>
     </div>
     <button id="form-btn">Submit</button>
-    <datalist id="customers-list">
-    </datalist>
+    <div id="info-box">
+      <label for="price">Extra Info 🗣</label>
+      <input type="text" placeholder="more details here" class="primary-form-input">
+    </div>
+    <!-- Suggestions -->
+    <datalist id="customers-list"></datalist>
     <datalist id="menu-list">
       <option value="Egusi Soup & Semo "></option>
       <option value="Akpu & Ogbono Soup"></option>
@@ -172,10 +192,14 @@
       <option value="1200"></option>
     </datalist>
   </section>
-  <section id="primary-records" data-visible="false">
+
+  <section id="primary-records" class="section" data-visible="false">
     <div class="top-bar">
       <h1 id="head-title">History</h1>
       <div class="utility">
+        <button id="search-btn">
+          <img src="/fi-rr-search-location.svg" alt="">
+        </button>
         <button id="tools-btn" aria-owns="tools">
           <img src="more_vert_FILL0_wght400_GRAD0_opsz48.svg" alt="">
         </button>
@@ -229,7 +253,7 @@
     </div>
   </section>
 
-  <section id="primary-analysis">
+  <section id="primary-analysis" class="section">
     <article class="analysis-container">
       <h1>Total number of plates sold</h1>
       <p></p>
@@ -262,8 +286,6 @@
     </article>
   </section>
 
-
-
   <div id="pop-up">
     <div id="dialog-box">
       <h1>Delete this items forever</h1>
@@ -274,18 +296,50 @@
   </div>
   
   <script>
-    if('serviceWorker' in navigator){
+    /*    if('serviceWorker' in navigator){
       window.addEventListener('load', ()=>{
         navigator.serviceWorker.register('serviceworker.js')
           .then((reg) => console.log('Success', reg.scope))
           .catch((err) => console.log('Failure', err))
       })
     }
+/*if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/serviceworker.js", { scope: "/" })
+    .then((registration) => {
+      // registration worked
+      console.log("Registration succeeded.");
+     registration.unregister().then((boolean) => {
+        // if boolean = true, 
+        console.log("Unregister is successful")
+      });
+    })
+    .catch((error) => {
+      // registration failed
+      console.error(`Registration failed with ${error}`);
+    });}*/
   </script>
+  <script src="/swReg.js"></script>
   <script src="appData.js"></script>
   <script src="calcapp.js" defer></script>
   <script src="toggle.js" defer></script>
-  <script src="database.js" type="module"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/serviceworker.js", { scope: "/" })
+        .then((registration) => {
+          // registration worked
+          console.log("Registration succeeded.");
+          registration.unregister().then((boolean) => {
+            // if boolean = true, unregister is successful
+          });
+        })
+        .catch((error) => {
+          // registration failed
+          console.error(`Registration failed with ${error}`);
+        });
+  }
+  </script>
 </body>
 
 </html>

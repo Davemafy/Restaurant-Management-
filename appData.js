@@ -32,31 +32,56 @@
   let storedOrders = JSON.parse(localStorage.getItem("storedOrders"))
   let prices = []
   let cardSelected = []
+
+    const card = document.createElement('li')
+    card.classList.add('cstm-card')
+    const circle = document.createElement('div')
+    circle.setAttribute('class', 'circle')
+    const cardMain = document.createElement('div')
+    cardMain.setAttribute('class', 'card-main')
+    const cstmTitle = document.createElement('div')
+    cstmTitle.setAttribute('class', 'cstm-title')
+    const h1 = document.createElement('h1')
+    const h6 = document.createElement('h6')
+    const small = document.createElement('small')
+    const p = document.createElement('p')
+    const span = document.createElement('span')
+    const span2 = document.createElement('span')
+    cardMain.append(cstmTitle)
+    cardMain.append(p)
+    cstmTitle.append(h1)
+    cstmTitle.append(h6)
+    h6.append(small)
+    //small.innerHTML = `${timeStr}`
+    card.append(circle, cardMain)
+    p.append(span, span2)
+
+
   const time = new Date()
   const timeStr = time.toLocaleTimeString()
-/*  // FirebaseDB realtime setup
-  const appSettings = {
-    databaseURL: "https://restaurant-4dd1c-default-rtdb.firebaseio.com/"
-  }
+  /*  // FirebaseDB realtime setup
+    const appSettings = {
+      databaseURL: "https://restaurant-4dd1c-default-rtdb.firebaseio.com/"
+    }
 
-  window.addEventListener("online", (e) => {
-    console.log("online");
-    import("https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js").then(async (main) => {
-      app = await main.initializeApp(appSettings)
-    })
-
-    import("https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js").then(async (db) => {
-      database = await db.getDatabase(app)
-      ordersDB = db.ref(database, "details")
-      db.onValue(ordersDB, function(snapshot) {
-        details = Object.values(snapshot.val())
-        storedOrders = details
-        render(details)
+    window.addEventListener("online", (e) => {
+      console.log("online");
+      import("https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js").then(async (main) => {
+        app = await main.initializeApp(appSettings)
       })
-    })
-  });
 
-*/
+      import("https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js").then(async (db) => {
+        database = await db.getDatabase(app)
+        ordersDB = db.ref(database, "details")
+        db.onValue(ordersDB, function(snapshot) {
+          details = Object.values(snapshot.val())
+          storedOrders = details
+          render(details)
+        })
+      })
+    });
+
+  */
 
 
   if (storedOrders) {
@@ -101,14 +126,13 @@
 
   }
 
-  function save(item,storage) {
+  function save(item, storage) {
     if (inputName.value && inputOrder.value && inputPrice.value) {
       let paragraph = ''
       ordersId.push(item)
       //import("https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js").then(async (db) => {
       //  db.push(ordersDB, item)
       //})
-
       localStorage.setItem("storedOrders", JSON.stringify(ordersId))
       document.querySelector('#default').classList.add('none')
       primaryRecords.style.opacity = '1'
@@ -117,32 +141,36 @@
       if (!customers.includes(ordersId[ordersId.length - 1].customer)) {
         alert("Hurray! We've got a new customer")
       }
-      paragraph = `    <li class="cstm-card">
+/*      paragraph = `    <li class="cstm-card">
                           <div class="circle"></div>
                           <div class="card-main">
                             <div class="cstm-title">
                               <h1>${storage[storage.length-1].customer}</h1>
-                              <h6><small>28/3/23</small></h6>
+                              <h6><small>${timeStr}</small></h6>
                             </div>
                             <p>
                               <span>${storage[storage.length-1].order}</span><span>N${storage[storage.length-1].price}</span>
                             </p>
                           </div>
                         </li>
-                  `
+                  `*/
       const subTitle = document.querySelector('.sub-title')
       const subVisibility = subTitle.getAttribute('data-visible')
 
       if (subVisibility === 'false') {
         subTitle.setAttribute('data-visible', true)
       }
-
-      primaryRecordsUlDisplay.innerHTML += paragraph
-      formBtn.style.transform = 'translateX(-20%)'
-      formBtn.style.background = 'blueviolet'
+      small.innerHTML = `${timeStr}`
+      h1.innerHTML =  `${storage[storage.length-1].customer}`
+      span.innerHTML =  `${storage[storage.length-1].order}`
+      span2.innerHTML =  `N${storage[storage.length-1].price}`
+      primaryRecordsUlDisplay.append(card)
+      formBtn.style.transform = 'translateX(-10%)'
+      formBtn.style.background = '#aaa'
 
       formBtn.innerHTML = 'Submited'
       navDot.style.opacity = '1'
+      navDot.style.scale = '1'
       cardsToggle()
       reset()
     }
@@ -158,12 +186,11 @@
     ordersId.reverse()
     for (var i = 0; i < storage.length; i++) {
       paragraph += `    <li class="cstm-card">
-                          <small></small>
                           <div class="circle"></div>
                           <div class="card-main">
                             <div class="cstm-title">
                               <h1>${storage[i].customer}</h1>
-                              <h6><small>${timeStr}</small></h6>
+                              <h6><small>28/3/23</small></h6>
                             </div>
                             <p>
                               <span>${storage[i].order}</span><span>N${storage[i].price}</span>
@@ -181,7 +208,7 @@
     let primaryCards = document.querySelectorAll('.cstm-card')
     primaryCards.forEach(card => {
       let display = ''
-      card.addEventListener('click', () => {
+        card.addEventListener('click', () => {
         new showTools('show')
         card.classList.toggle('angle')
         if (!cardSelected.includes(card)) {
@@ -272,13 +299,19 @@
   const inputs = document.querySelectorAll('input')
   formBtn.addEventListener('click', () => {
     if (inputName.value === '' || inputName.value.length < 3) {
-      warnText[0].style.display = 'block'
+      warnText[0].style.opacity = '1'
+      warnText[0].style.scale = '1'
+      warnText[0].style.transform = 'translsteY(0%)'
     }
     if (inputOrder.value === '' || inputOrder.value.length < 3) {
-      warnText[1].style.display = 'block'
+      warnText[1].style.opacity = '1'
+      warnText[1].style.scale = '1'
+      warnText[1].style.transform = 'translsteY(0%)'
     }
     if (inputPrice.value === '' || inputPrice.value.length < 2) {
-      warnText[2].style.display = 'block'
+      warnText[2].style.opacity = '1'
+      warnText[2].style.scale = '1'
+      warnText[2].style.transform = 'translsteY(0%)'
     }
     let newItem = { customer: inputName.value, order: inputOrder.value, price: inputPrice.value }
     save(newItem, ordersId)
@@ -296,7 +329,13 @@
   let defaultBtn = formBtn.innerHTML
   let defaultBtnWidth = formBtn.getBoundingClientRect().width
   formBtn.addEventListener('mouseout', () => {
-    setTimeout(() => { warnText.forEach(text => { text.style.display = 'none' }) }, 1000)
+    setTimeout(() => {
+      warnText.forEach(text => {
+        text.style.opacity = '0'
+        text.style.scale = '0'
+        text.style.transform = 'translste(10%)'
+      })
+    }, 1000)
     formBtn.innerHTML = defaultBtn
     formBtn.style.transform = 'translateX(0%)'
     formBtn.style.background = ''
