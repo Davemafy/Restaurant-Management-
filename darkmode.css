@@ -116,7 +116,7 @@ body.insetY #primary-records {
 header, #primary-form h2 {
   position: absolute;
   top: 0;
-  margin: 1rem auto;
+  margin: 0rem auto;
   width: 100vw;
   height: 4rem;
   z-index: 3;
