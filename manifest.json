@@ -14,8 +14,8 @@
   "scope": "/",
   "start_url": "/",
   "orientation": "portrait",
-  "theme_color": "#f44b28",
-  "background_color": "#fff",
+  "theme_color": "#F67B92",
+  "background_color": "#F67B92",
   "related_applications": [
     {
       "platform": "play",

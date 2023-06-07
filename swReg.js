@@ -3,7 +3,7 @@ navigator.serviceWorker.register("serviceworker.js");
 
 window.addEventListener("DOMContentLoaded", async event => {
   if ('BeforeInstallPromptEvent' in window) {
-    document.querySelector('#mobile-nav-toggle').style.display = 'bloc'
+    document.querySelector('#mobile-nav-toggle').style.display = 'block'
     showResult("⏳ BeforeInstallPromptEvent supported but not fired yet");
   } else {
     showResult("❌ BeforeInstallPromptEvent NOT supported");    
@@ -20,6 +20,29 @@ window.addEventListener('beforeinstallprompt', (e) => {
   deferredPrompt = e;
   // Show your customized install prompt for your PWA
   document.querySelector('#mobile-nav-toggle').style.display = 'none'
+/*  body.innerHTML = `RestApp     <button id="install">Install Me</button>
+   <script src="/swReg.js"></script>
+  <script src="appData.js"></script>
+  <script src="calcapp.js" defer></script>
+  <script src="toggle.js" defer></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/serviceworker.js", { scope: "/" })
+        .then((registration) => {
+          // registration worked
+          console.log("Registration succeeded.");
+          registration.unregister().then((boolean) => {
+            // if boolean = true, unregister is successful
+          });
+        })
+        .catch((error) => {
+          // registration failed
+          console.error(Registration failed);
+        });
+  }
+  </script>
+`*/
   document.querySelector("#install").style.display="block";  
   showResult("✅ BeforeInstallPromptEvent fired", true);
   

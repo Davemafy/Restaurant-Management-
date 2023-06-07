@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,33 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Chrome, Firefox OS and Opera -->
-  <meta name="theme-color" content="#fff">
+  <meta name="theme-color" content="="hsla(11, 10%, 31%, .88)">
   <!-- Windows Phone -->
-  <meta name="msapplication-navbutton-color" content="#fff">
+  <meta name="msapplication-navbutton-color" content="hsla(11, 10%, 31%, .88)">
   <!-- iOS Safari -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
-  <title>Restaurant App</title>
-  <link rel="icon" href="/favicon.png">
+  <meta name="apple-mobile-web-app-status-bar-style" content="hsla(11, 10%, 31%, .88)">
+  <title>RestApp</title>
+  <link rel="icon" href="relogo.png">
   <link rel="stylesheet" href="darkmode.css">
   <link rel="manifest" href="manifest1.json">
+  <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+-->
 </head>
 
 <body aria-current="true">
   <header>
-    <h1>RestApp</h1>
+    <img id="logo" src="relogo.png" alt="">
     <button id="user-circle">
-        <img src="/4324573.png" alt="">
-        <p id="user-name"></p>
-      </button>
-    <button id="install">Install Me</button>
+      <p id="user-name"></p>
+    </button>
+    <button id="install">Install App</button>
+    <button id="user-button"></button>
     <button id="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"></button>
-    <div class="overlay " data-visible="false"></div>
+    <div class="overlay" data-visible="false"></div>
     <div id="primary-navigation" class="section" data-visible="false" data-transed="false">
       <section id="user-details">
         <div><span class=""></span></div>
         <span>
           <p><big>User</big></p>
           <p><small>View Profile</small></p>
+          <img src="logo.png" alt="">
         </span>
       </section>
       <ul>
@@ -45,7 +48,7 @@
           <a>Analysis</a>
         </li>
 
-       <li class="" id="Check Customers">
+        <li class="" id="Check Customers">
           <a>
             Customer
           </a>
@@ -97,6 +100,27 @@
       </section>
     </div>
   </header>
+
+  <main id="dashboard">
+    <div class="dash-box">
+      <h1>Today's Analysis</h1> <button id="open"></button>
+    </div>
+    <div class="dash-box">
+      <h1>Payments Made</h1> <button id="open"></button> <button id="open"></button> <button id="open"></button> <button id="open"></button>
+    </div>
+    <div class="dash-box">
+      <h1>Debts Owed</h1><button id="open"></button>
+    </div>
+    <div class="dash-box">
+      <h1>Your Profits</h1><button id="open"></button>
+    </div>
+    <div class="dash-box">
+      <h1>History</h1> <button id="open"></button>
+    </div>
+    <div class="dash-box">
+      <h1>Settings</h1> <button id="open"></button>
+    </div>
+  </main>
   <div id="top-bar">
 
   </div>
@@ -104,19 +128,19 @@
   <nav id="nav-kits">
     <span id="navigator"></span>
     <button id="analysis-toggle">
-      <img src="/home_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+      <img src="home_FILL0_wght400_GRAD0_opsz48.svg" alt="">
     </button>
     <button id="records-toggle">
       <span id="dotbox">
         <span class="dot"></span>
-        <img src="/account_circle_black_24dp.svg" alt="">
+        <img src="account_circle_black_24dp.svg" alt="">
       </span>
     </button>
     <button id="add-toggle">
       <img src="add_circle_FILL0_wght400_GRAD0_opsz48.svg" alt="">
     </button>
     <button id="notify-toggle">
-      <img src="/wysiwyg_black_24dp.svg" alt="">
+      <img src="wysiwyg_black_24dp.svg" alt="">
     </button>
     <button id="settings-toggle">
       <img src="settings.svg" alt="">
@@ -240,7 +264,7 @@
     </div>
     <div id="records-all" data-visible="true">
       <div style="text-align: center;line-height: 80vh; font-weight: bolder;" id="default">
-        <p>No recent records <br><i>���</i>🪴</p>
+        <p><big>No records <img style="display: inline; height: 2rem;" src="/fi-rr-search-location.svg" alt=""></big><br><i>���</i>🪴</p>
       </div>
       <ul id="record-cards">
         <div class="sub-title" data-visible="false">Now </div>
@@ -292,7 +316,7 @@
       <button id="no-btn">x</button>
     </div>
   </div>
-  
+
   <script>
     /*    if('serviceWorker' in navigator){
       window.addEventListener('load', ()=>{
@@ -324,7 +348,9 @@
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
-        .register("/serviceworker.js", { scope: "/" })
+        .register("/serviceworker.js", {
+          scope: "/"
+        })
         .then((registration) => {
           // registration worked
           console.log("Registration succeeded.");
@@ -336,7 +362,7 @@
           // registration failed
           console.error(`Registration failed with ${error}`);
         });
-  }
+    }
   </script>
 </body>
 

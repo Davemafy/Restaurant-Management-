@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="darkmode.css">
+</head>
+
+<body>
+  <header>
+    <h1>RestApp</h1>
+    <button id="user-circle">
+      <img src="/4324573.png" alt="">
+      <!--       <img src="/5589711.png" alt="">
+        <img src="/9704089.png" alt="">
+       <img src="/1224114.png" alt="">
+        <img src="/4053439.png" alt="">
+      -->
+      <p id="user-name"></p>
+    </button>
+    <button id="install">Install Me</button>
+    <button id="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"></button>
+
+    <div class="overlay" data-visible="false"></div>
+    <div id="primary-navigation" data-visible="false" data-transed="false">
+      <section id="user-details">
+        <img src="/account_circle_black_24dp.svg" alt="">
+        <h3>User</h3>
+      </section>
+      <ul>
+        <li class="" id="calculator-toggle">
+          <a aria-controls="primary-calculator" aria-expanded="false">
+            Calculate
+          </a>
+        </li>
+        <li class="" id="Payments">
+          <a>Analysis</a>
+        </li>
+
+        <li class="" id="Check Customers">
+          <a>
+            Customer
+          </a>
+        </li>
+
+        <li class="" id="Relax">
+          <a>
+            Relax
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div id="primary-calculator" data-visible="false" data-closed="true">
+      <button id="primary-calculator-toggle"></button>
+      <section id="primary-calculator-history">
+        <input data-current-operand type="text" id="calc-display">
+        <p data-previous-operand id="result-box"></p>
+      </section>
+      <section id="primary-calculator-actions">
+        <button data-all-clear id="clear-all" class="operator">AC</button>
+        <button data-operation id="divide" class="operator">÷</button>
+        <button data-operation id="multiply" class="operator">×</button>
+        <button data-delete id="cancel" class="operator"><img src="/backspace-svgrepo-com.svg" alt=""></button>
+        <button data-number id="num7" class="number">7</button>
+        <button data-number id="num8" class="number">8</button>
+        <button data-number id="num9" class="number">9</button>
+        <button data-operation id="subtract" class="operator">-</button>
+        <button data-number id="num4" class="number">4</button>
+        <button data-number id="num5" class="number">5</button>
+        <button data-number id="num6" class="number">6</button>
+        <button data-operation id="add" class="operator">+</button>
+        <button data-number id="num1" class="number">1</button>
+        <button data-number id="num2" class="number">2</button>
+        <button data-number id="num3" class="number">3</button>
+        <button data-equals id="equals" class="operator white">=</button>
+        <button data-operation id="modulus" class="operator white">%</button>
+        <button data-number id="num0" class="number">0</button>
+        <button data-number id="period" class="operator white">.</button>
+      </section>
+    </div>
+  </header>
+  <output></output>
+
+  <script src="swReg.js"></script>
+  <script>
+    const navToggle = document.getElementById(
+      'mobile-nav-toggle')
+    const primaryNav = document.getElementById(
+      'primary-navigation')
+    const overlay = document.querySelector(
+      '.overlay')
+    navToggle.addEventListener('click', function() {
+      const navVisible =
+        primaryNav.getAttribute('data-visible')
+
+      if (navVisible === 'false') {
+        primaryNav.setAttribute(
+          'data-visible', true
+        )
+        navToggle.setAttribute(
+          'aria-expanded', true
+        )
+        overlay.setAttribute(
+          'data-visible', true
+        )
+        primaryFormLabel.forEach(
+          label => {
+            label.style.transition = '11s'
+            label.style.color = '#222'
+          })
+      }
+      else if (navVisible === 'true') {
+        primaryNav.setAttribute(
+          'data-visible', false
+        )
+        navToggle.setAttribute(
+          'aria-expanded', false
+        )
+        overlay.setAttribute(
+          'data-visible', false
+        )
+        primaryFormLabel.forEach(
+          label => {
+            label.style.color = 'ghostwhite'
+          })
+      }
+    })
+
+
+    // CALCULATOR TOGGLER 
+    const calculatorToggle =
+      document.querySelector("#calculator-toggle")
+    const primaryCalculator =
+      document.querySelector("#primary-calculator")
+    const calcToggleOff =
+      document.querySelector("#primary-calculator-toggle")
+
+    function toggleVisibility(arr)
+    {
+      if (arr === "false") {
+        primaryCalculator.setAttribute(
+          "data-visible", true
+        )
+      } else if (arr === "true") {
+        primaryCalculator.setAttribute(
+          "data-visible", false
+        )
+      }
+    }
+
+    calculatorToggle.addEventListener("click", () => {
+      const calcVisible =
+        primaryCalculator.getAttribute(
+          "data-visible"
+        )
+
+      toggleVisibility(calcVisible)
+    })
+
+    calcToggleOff.addEventListener('click', () => {
+      const calcVisible = primaryCalculator.getAttribute("data-visible")
+      const calcClosed = primaryCalculator.getAttribute("data-closing")
+
+      if (calcClosed === "false") {
+        primaryCalculator.setAttribute("data-closing", true)
+      } else if (calcClosed === "true") {
+        primaryCalculator.setAttribute("data-closing", false)
+      }
+      toggleVisibility(calcVisible)
+    })
+  </script>
+</body>
+
+</html>

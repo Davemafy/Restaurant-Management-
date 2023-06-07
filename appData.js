@@ -296,6 +296,7 @@
 
 
   // EVENT LISTENERS
+  
   const inputs = document.querySelectorAll('input')
   formBtn.addEventListener('click', () => {
     if (inputName.value === '' || inputName.value.length < 3) {

@@ -2,20 +2,20 @@
   "name": "Restaurant App",
   "short_name": "RestApp",
   "theme_color": "#fff",
-  "background_color": "#fff",
+  "background_color": "#111",
   "start_url": "/",
   "id": "/",
-  "display": "standalone",
+  "display": "fullscreen",
   "scope": "/",
   
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "/relogo.png",
       "type": "image/png",
       "sizes": "192x192"
      },
     {
-      "src": "favicon.png",
+      "src": "/relogo.png",
       "type": "image/png",
       "sizes": "64x64"
      }
