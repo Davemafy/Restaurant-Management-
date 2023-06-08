@@ -19,7 +19,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   // Save the event because you’ll need to trigger it later.
   deferredPrompt = e;
   // Show your customized install prompt for your PWA
-  document.querySelector('#mobile-nav-toggle').style.display = 'none'
+  // document.querySelector('#mobile-nav-toggle').style.display = 'none'
 /*  body.innerHTML = `RestApp     <button id="install">Install Me</button>
    <script src="/swReg.js"></script>
   <script src="appData.js"></script>

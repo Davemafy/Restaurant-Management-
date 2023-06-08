@@ -273,23 +273,20 @@ header button {
 #primary-navigation[data-visible="true"],
 #primary-calculator[data-visible="true"] {
   opacity: 1;
-  transform: translateX(0%);
+  left: -75vw;
 }
 
 #primary-navigation {
   --child-pad: 2rem;
   --bg: #fff;
-  height: 100%;
-  width: 75vw;
+  --width: 75vw;
+  height: 100vh;
+  width: var(--width);
 
   background: var(--bg);
   background-blend-mode: darken;
   background-size: cover;
-  opacity: 1;
-  transform: translateX(-150vw);
-  /*  Display offed */
   position: fixed;
-  left: 0;
   display: flex;
   flex-flow: column nowrap;
   font-family: ubuntu;
@@ -297,11 +294,10 @@ header button {
   color: #191919;
   overflow: scroll;
   padding: 0;
-  filter: invert(90%);
-
+  left: -200vw;
   transition: opacity 1s ease-in-out,
-    transform 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-}
+    left 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
 
 #primary-navigation section {
   box-shadow: 0px 0px 1px inset #aaa;
@@ -589,8 +585,8 @@ img {
   max-height: 100%;
 }
 @media (min-width: 40em){
-  dashboard{
-
+  #primary-navigation {
+      display: none;
 }
 }
 .dash-box:nth-of-type(1) {
@@ -761,7 +757,11 @@ img {
   border-radius: 0px;
   filter: invert(40%) hue-rotate(280deg);
 }
-
+#nav-kits svg{
+  height: 2.2em;
+  filter: invert(40%) hue-rotate(280deg);
+}
+svg {width: 100%; height: auto;}
 #nav-kits button {
   height: 100%;
   width: 100%;
@@ -1263,9 +1263,12 @@ img {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  padding-top: 3rem;
+  position: unset;
+  left: 0vw;
 
   z-index: 0;
-  transform: translateX(100%);
+  transform: none;
 }
 
 .cstm-card {
