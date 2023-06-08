@@ -71,7 +71,7 @@ body {
   background: var(--body-bg);
   text-align: center;
 }
-header button {
+ button {
   max-height: 4rem;
   aspect-ratio: 1;
   background: transparent;
@@ -126,7 +126,6 @@ header,
   position: fixed;
   top: 0%;
   margin: 0 auto;
-  margin-botm: 1rem;
   width: 100vw;
   height: 4rem;
   z-index: 3;
@@ -136,7 +135,6 @@ header,
   justify-content: flex-end;
   overflow: hidden;
   border-radius: 0rem;
-  backgrond: url("4324573.png");
   background: hsla(11, 10%, 31%, .7);
   transition: all 0.5s;
   gap: 0rem;
@@ -229,14 +227,12 @@ header button {
 }
 
 #mobile-nav-toggle[aria-expanded="true"] {
-  backgrund-image: url("close_FILL0_wght400_GRAD0_opsz48.svg");
   transition: 0s !important;
   border: solid black;
   border-radius: 5px;
 }
 
 .overlay {
-  backdrop-filtr: blur(0.3rem);
   transform: translateX(-200vw);
   transition: 0.1s ease-in;
   width: 100vw;
@@ -287,13 +283,6 @@ header button {
   width: 75vw;
 
   background: var(--bg);
-  background-mage: linear-gradient(
-      150deg,
-      hsla(0, 0%, 100%, 0.39),
-      hsla(0, 0%, 0%, 0.2)
-    ),
-    url("herosection.jpg");
-
   background-blend-mode: darken;
   background-size: cover;
   opacity: 1;
@@ -334,9 +323,6 @@ header button {
   aspect-ratio: 1;
   border-radius: 4rem;
   background: #e6e3dc;
-}
-
-#primary-navigation #user-details {
 }
 
 #primary-navigation #user-details div {
@@ -579,17 +565,14 @@ header button {
   display: grid;
   grid-auto-columns: 1fr;
   grid-template-areas:
-    "one one "
-   "one one "
-    "two three "
+  "one one "
+  "three two"
     "four five "
-    " six seven";
+    "six seven";
   color: #111;
   padding: 5rem 2rem;
-  padding-bottom: 0;
   gap: 1rem;
   font-size: 0.8rem;
-background: ;
 }
 
 .dash-box {
@@ -607,7 +590,7 @@ img {
 }
 @media (min-width: 40em){
   dashboard{
-  
+
 }
 }
 .dash-box:nth-of-type(1) {
@@ -626,28 +609,23 @@ img {
 
 .dash-box:nth-of-type(2) {
   grid-area: two;
-  background: orange;
+  /* background: rgba(255, 166, 0, 0.884); */
 }
 
 .dash-box:nth-of-type(3) {
   grid-area: three;
 
-  background: url("local_fire_department_black_24dp.svg");
-  border: 2px black solid;
-  background-size: 30px;
+  /* border: 2px black solid; */
 }
 
 .dash-box:nth-of-type(4) {
   grid-area: four;
-  background: linear-gradient(orange, hsl(39, 100%, 50%, 1));
-  color: #fffed3;
-  filter: invert();
-  background: hsla(342, 30%, 8%, 0.88);
+  /* background: hsla(342, 30%, 8%, 0.88); */
 }
 
 .dash-box:nth-of-type(5) {
   grid-area: five;
-  background: blueviolet;
+  /* background: blueviolet; */
 }
 
 .dash-box:nth-of-type(6) {
@@ -655,15 +633,8 @@ img {
 }
 
 .dash-box:nth-of-type(3) h1 {
-  background: #00ffff30;
-  backdrop-filter: invert();
   width: 100%;
   height: 100%;
-  font-size: 2rem;
-  -webkit-text-stroke: .2px #9aecd8fa;
-
-  text-shadow: 1px 1px 2rem #112, 1px 1px 1rem darkcyan;
-  color: #0000;
   border-radius: inherit;
 }
 
@@ -729,6 +700,8 @@ img {
   background: url("");
 }
 
+
+/*
 @keyframes fluid {
   0%,
   100% {
@@ -761,6 +734,7 @@ img {
     background: orange;
   }
 }
+*/
 #nav-kits {
   display: flex;
   flex-flow: row nowrap;
@@ -808,7 +782,6 @@ img {
 #nav-kits img:hover {
   filter: drop-shadow(0px 0px 5rem black);
   border-radius: 0.4rem;
-  box-shaow: 1px 1px 0.001rem #333;
 }
 
 #nav-kits #add-toogle {
@@ -820,7 +793,6 @@ img {
 #nav-kits #navigator {
   border-radius: 0px;
   box-shadow: none;
-  backgrond: repeating-linear-gradient(45deg, deeppink, #aaa);
 }
 
 #nav-kits #navigator {
@@ -963,9 +935,7 @@ img {
   font-size: 1.1rem;
 
   width: 100%;
-  heigt: 4rem;
   padding: 1rem;
-  backgrolund: linear-gradient(45deg, antiquewhite, navajowhite);
   color: #111;
   text-align: left;
 }
@@ -1014,10 +984,7 @@ img {
 
 #primary-form button {
   background: blanchedalmond;
-  outlie: 0;
   color: #3e3427;
-  widt: 7rem;
-  scle: 1;
 }
 
 #primary-form button img {
@@ -1112,9 +1079,6 @@ img {
   color: navajowite;
 }
 
-#primary-records .utility {
-}
-
 .utility button,
 #tools button {
   border: 0;
@@ -1152,9 +1116,6 @@ img {
   width: 3rem;
   aspect-ratio: 1;
   display: none;
-}
-
-#exit-btn svg {
 }
 
 #tools {
@@ -1252,12 +1213,6 @@ img {
   transition: filter 1s;
 }
 
-#cube-box span img,
-#id-btn span img {
-  heght: 100%;
-  with: 100%;
-}
-
 #primary-records .utility img {
   height: 3.5vh;
 }
@@ -1327,8 +1282,6 @@ img {
   background: linear-gradient(45deg, pink, skyblue);
   margin-inline: auto;
   transition: scale 350ms;
-
-  trasition-timing-function: cubic-bezier(0.5, -2, 0.5, -1);
 }
 
 .cstm-card.angle {
@@ -1337,9 +1290,6 @@ img {
 
 .cstm-card.angle .circle {
   filter: invert(50%) sepia() hue-rotate(170deg) brightness(110%);
-}
-
-.cstm-card:nth-of-type(even) {
 }
 
 .circle {
@@ -1472,7 +1422,7 @@ img {
   display: grid;
   gap: 2.5rem;
 
-  grid-aut-columns: 1fr;
+  grid-auto-columns: 1fr;
   grid-template-areas:
     "one one"
     "two three"
@@ -1488,7 +1438,6 @@ img {
   border-radius: 0.5rem;
   background: repeating-linear-gradient(45deg, #faebd74d, #ffdead8a);
   background: hsl(0, 0%, 0%, 0.75);
-  box-shadw: 0.1rem 0.1rem 0.41rem inset #999;
   backdrop-filter: blur(1rem);
   padding: 0rem;
   background: #0000;
@@ -1559,7 +1508,6 @@ img {
 
 #primary-analysis article:nth-of-type(2) {
   grid-area: two;
-  backgroud-image: linear-gradient(45deg, #fff1, #fff1), url("herosection.jpg");
   background-size: cover;
   box-shadow: 0.1rem 0.1rem 0.41rem navajowhite;
   background-position: 0% 60%;
@@ -1617,7 +1565,6 @@ img {
   font-size: 1rem;
   background: none;
   padding: 3rem 1rem;
-  box-hadow: 0.1rem 0.1rem 0.41rem inset #999;
 }
 
 #primary-analysis article div img {
